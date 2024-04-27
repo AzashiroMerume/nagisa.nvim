@@ -1,19 +1,19 @@
 local colors = {}
 colors.get_colors = function()
-    local mycolors = {} ---@type table<string,string>
+    local nagisaColors = {} ---@type table<string,string>
 
     if vim.o.background == 'dark' then
-        mycolors = {
+        nagisaColors = {
             nsaNone = 'NONE',
-            nsaFront = '#e9e7f7',
+            nsaFront = '#e7e7e7',
             nsaBack = '#000000',
 
-            nsaTabCurrent = '#1E1E1E',
+            nsaTabCurrent = '#6f0687',
             nsaTabOther = '#2D2D2D',
-            nsaTabOutside = '#252526',
+            nsaTabOutside = '#010101',
 
-            nsaLeftDark = '#010103',
-            nsaLeftMid = '#db1414',
+            nsaLeftDark = '#010101',
+            nsaLeftMid = '#6f0687',
             nsaLeftLight = '#636369',
 
             nsaPopupFront = '#BBBBBB',
@@ -79,7 +79,7 @@ colors.get_colors = function()
             nsaDimHighlight = '#51504F'
         }
     else
-        mycolors = {
+        nagisaColors = {
             nsaNone = 'NONE',
             nsaFront = '#343434',
             nsaBack = '#FFFFFF',
@@ -153,18 +153,18 @@ colors.get_colors = function()
     end
 
     -- Other ui specific colors
-    mycolors.nsaUiBlue = '#084671'
-    mycolors.nsaUiOrange = '#f28b25'
-    mycolors.nsaPopupHighlightLightBlue = '#d7eafe'
+    nagisaColors.nsaUiBlue = '#084671'
+    nagisaColors.nsaUiOrange = '#f28b25'
+    nagisaColors.nsaPopupHighlightLightBlue = '#d7eafe'
 
     -- Extend the colors with overrides passed by `color_overrides`
     local config = require('nagisa.config')
     if config.opts.color_overrides then
-        mycolors =
-            vim.tbl_extend('force', mycolors, config.opts.color_overrides)
+        nagisaColors = vim.tbl_extend('force', nagisaColors,
+                                      config.opts.color_overrides)
     end
 
-    return mycolors
+    return nagisaColors
 end
 
 return colors

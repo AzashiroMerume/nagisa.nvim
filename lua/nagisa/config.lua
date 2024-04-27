@@ -6,7 +6,7 @@ local defaults = {
     underline_links = false,
     color_overrides = {},
     group_overrides = {},
-    disable_nvimtree_bg = true,
+    disable_nvimtree_bg = true
 }
 
 config.opts = {}
