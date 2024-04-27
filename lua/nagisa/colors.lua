@@ -1,5 +1,5 @@
 local colors = {}
-colors.get_colors = function()
+colors.get_colors = function(opts)
     local nagisaColors = {} ---@type table<string,string>
 
     if vim.o.background == 'dark' then
@@ -10,9 +10,9 @@ colors.get_colors = function()
 
             nsaTabCurrent = '#6f0687',
             nsaTabOther = '#2D2D2D',
-            nsaTabOutside = '#010101',
+            nsaTabOutside = '#000000',
 
-            nsaLeftDark = '#010101',
+            nsaLeftDark = '#000000',
             nsaLeftMid = '#6f0687',
             nsaLeftLight = '#636369',
 
@@ -56,24 +56,24 @@ colors.get_colors = function()
             nsaFoldBackground = '#202d39',
 
             -- Syntax colors
-            nsaGray = '#808080',
-            nsaViolet = '#646695',
-            nsaBlue = '#569CF0',
-            nsaAccentBlue = '#4FC1FF',
-            nsaDarkBlue = '#223E55',
-            nsaMediumBlue = '#18a2fe',
+            nsaGray = '#546E7A',
+            nsaViolet = '#de10d6',
+            nsaBlue = '#1e2ed2',
+            nsaAccentBlue = '#2aabef',
+            nsaDarkBlue = '#14095b',
+            nsaMediumBlue = '#3721be',
             nsaDisabledBlue = '#729DB3',
             nsaLightBlue = '#9CDCFE',
-            nsaGreen = '#6A9955',
-            nsaBlueGreen = '#4EC9B0',
-            nsaLightGreen = '#B5CEA8',
-            nsaRed = '#F44747',
-            nsaOrange = '#CE9178',
-            nsaLightRed = '#D16969',
-            nsaYellowOrange = '#D7BA7D',
-            nsaYellow = '#DCDCAA',
-            nsaDarkYellow = '#FFD602',
-            nsaPink = '#C586C0',
+            nsaGreen = '#10de18',
+            nsaBlueGreen = '#10deb6',
+            nsaLightGreen = '#65e7cd',
+            nsaRed = '#e70e0e',
+            nsaOrange = '#f0390d',
+            nsaLightRed = '#ee3030',
+            nsaYellowOrange = '#d89615',
+            nsaYellow = '#f5ec13',
+            nsaDarkYellow = '#6c680a',
+            nsaPink = '#f261c5',
 
             -- Low contrast with default background
             nsaDimHighlight = '#51504F'
@@ -157,11 +157,9 @@ colors.get_colors = function()
     nagisaColors.nsaUiOrange = '#f28b25'
     nagisaColors.nsaPopupHighlightLightBlue = '#d7eafe'
 
-    -- Extend the colors with overrides passed by `color_overrides`
-    local config = require('nagisa.config')
-    if config.opts.color_overrides then
+    if opts.color_overrides then
         nagisaColors = vim.tbl_extend('force', nagisaColors,
-                                      config.opts.color_overrides)
+                                      opts.color_overrides)
     end
 
     return nagisaColors

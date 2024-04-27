@@ -34,7 +34,6 @@ config.setup = function(user_opts)
     end
 end
 
--- Initialize config
 config.setup()
 
 return config
