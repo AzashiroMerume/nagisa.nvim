@@ -6,13 +6,13 @@ colors.get_colors = function(opts)
         nagisaColors = {
             nsaNone = 'NONE',
             nsaFront = '#e7e7e7',
-            nsaBack = '#000000',
+            nsaBack = '#07090F',
 
             nsaTabCurrent = '#6f0687',
             nsaTabOther = '#2D2D2D',
-            nsaTabOutside = '#000000',
+            nsaTabOutside = '#07090F',
 
-            nsaLeftDark = '#000000',
+            nsaLeftDark = '#07090F',
             nsaLeftMid = '#6f0687',
             nsaLeftLight = '#636369',
 
@@ -57,21 +57,21 @@ colors.get_colors = function(opts)
 
             -- Syntax colors
             nsaGray = '#546E7A',
-            nsaViolet = '#de10d6',
-            nsaBlue = '#1e2ed2',
+            nsaPurple = '#2738F2',
+            nsaBlue = '#3772FF',
             nsaAccentBlue = '#2aabef',
             nsaDarkBlue = '#14095b',
             nsaMediumBlue = '#3721be',
             nsaDisabledBlue = '#729DB3',
             nsaLightBlue = '#9CDCFE',
-            nsaGreen = '#10de18',
-            nsaBlueGreen = '#10deb6',
+            nsaGreen = '#5EF38C',
+            nsaBlueGreen = '#17C3B2',
             nsaLightGreen = '#65e7cd',
-            nsaRed = '#e70e0e',
-            nsaOrange = '#f0390d',
-            nsaLightRed = '#ee3030',
+            nsaRed = '#ee3030',
+            nsaOrange = '#FF521B',
+            nsaLightRed = '#E55934',
             nsaYellowOrange = '#d89615',
-            nsaYellow = '#f5ec13',
+            nsaYellow = '#F0E100',
             nsaDarkYellow = '#6c680a',
             nsaPink = '#f261c5',
 
