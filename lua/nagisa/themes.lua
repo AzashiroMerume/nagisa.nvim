@@ -1,10 +1,8 @@
 local hl = vim.api.nvim_set_hl
 local themes = {}
 
-themes.WhiteDarkness = {}
-themes.WhiteDarkness.set_highlights = function(c, opts)
-    local isDark = vim.o.background == 'dark'
-
+themes.EndOfTheWorld = {}
+themes.EndOfTheWorld.set_highlights = function(c, opts)
     hl(0, 'Normal', {fg = c.nsaFront, bg = c.nsaBack})
     hl(0, 'ColorColumn', {fg = 'NONE', bg = c.nsaCursorDarkDark})
     hl(0, 'Cursor', {fg = c.nsaCursorDark, bg = c.nsaCursorLight})
@@ -16,7 +14,7 @@ themes.WhiteDarkness.set_highlights = function(c, opts)
     hl(0, 'DiffDelete', {fg = 'NONE', bg = c.nsaDiffRedLight})
     hl(0, 'DiffText', {fg = 'NONE', bg = c.nsaDiffRedLight})
     hl(0, 'EndOfBuffer', {fg = c.nsaBack, bg = 'NONE'})
-    hl(0, 'ErrorMsg', {fg = c.nsaRed, bg = c.nsaBack})
+    hl(0, 'ErrorMsg', {fg = c.nsaErrorRed, bg = c.nsaBack})
     hl(0, 'VertSplit', {fg = c.nsaSplitDark, bg = c.nsaBack})
     hl(0, 'WinSeparator', {link = 'VertSplit'})
     hl(0, 'Folded', {fg = 'NONE', bg = c.nsaFoldBackground})
@@ -28,13 +26,9 @@ themes.WhiteDarkness.set_highlights = function(c, opts)
     hl(0, 'MatchParen', {fg = c.nsaNone, bg = c.nsaDimHighlight})
     hl(0, 'ModeMsg', {fg = c.nsaFront, bg = c.nsaLeftDark})
     hl(0, 'MoreMsg', {fg = c.nsaFront, bg = c.nsaLeftDark})
-    hl(0, 'NonText',
-       {fg = (isDark and c.nsaLineNumber or c.nsaTabOther), bg = c.nsaNone})
+    hl(0, 'NonText', {fg = c.nsaLineNumber, bg = c.nsaNone})
     hl(0, 'Pmenu', {fg = c.nsaPopupFront, bg = c.nsaPopupBack})
-    hl(0, 'PmenuSel', {
-        fg = isDark and c.nsaPopupFront or c.nsaBack,
-        bg = c.nsaPopupHighlightBlue
-    })
+    hl(0, 'PmenuSel', {fg = c.nsaPopupFront, bg = c.nsaPopupHighlightBlue})
     hl(0, 'PmenuSbar', {fg = 'NONE', bg = c.nsaPopupHighlightGray})
     hl(0, 'PmenuThumb', {fg = 'NONE', bg = c.nsaPopupFront})
     hl(0, 'Question', {fg = c.nsaBlue, bg = c.nsaBack})
@@ -49,7 +43,7 @@ themes.WhiteDarkness.set_highlights = function(c, opts)
     hl(0, 'Title', {fg = c.nsaNone, bg = c.nsaNone, bold = true})
     hl(0, 'Visual', {fg = c.nsaNone, bg = c.nsaSelection})
     hl(0, 'VisualNOS', {fg = c.nsaNone, bg = c.nsaSelection})
-    hl(0, 'WarningMsg', {fg = c.nsaRed, bg = c.nsaBack, bold = true})
+    hl(0, 'WarningMsg', {fg = c.nsaOrange, bg = c.nsaBack, bold = true})
     hl(0, 'WildMenu', {fg = c.nsaNone, bg = c.nsaSelection})
     hl(0, 'Comment',
        {fg = c.nsaGray, bg = 'NONE', italic = opts.italic_comments})
@@ -59,8 +53,8 @@ themes.WhiteDarkness.set_highlights = function(c, opts)
     hl(0, 'Number', {fg = c.nsaLightGreen, bg = 'NONE'})
     hl(0, 'Boolean', {fg = c.nsaOrange, bg = 'NONE'})
     hl(0, 'Float', {fg = c.nsaLightGreen, bg = 'NONE'})
-    hl(0, 'Identifier', {fg = c.nsaLightBlue, bg = 'NONE'})
-    hl(0, 'Function', {fg = c.nsaYellow, bg = 'NONE'})
+    hl(0, 'Identifier', {fg = c.nsaLightGreen, bg = 'NONE'})
+    hl(0, 'Function', {fg = c.nsaRed, bg = 'NONE'})
     hl(0, 'Statement', {fg = c.nsaPink, bg = 'NONE'})
     hl(0, 'Conditional', {fg = c.nsaPink, bg = 'NONE'})
     hl(0, 'Repeat', {fg = c.nsaPink, bg = 'NONE'})
@@ -74,9 +68,9 @@ themes.WhiteDarkness.set_highlights = function(c, opts)
     hl(0, 'Macro', {fg = c.nsaPink, bg = 'NONE'})
     hl(0, 'Type', {fg = c.nsaAccentBlue, bg = 'NONE'})
     hl(0, 'StorageClass', {fg = c.nsaPurple, bg = 'NONE'})
-    hl(0, 'Structure', {fg = c.nsaBlueGreen, bg = 'NONE'})
+    hl(0, 'Structure', {fg = c.nsaGreenBlue, bg = 'NONE'})
     hl(0, 'Typedef', {fg = c.nsaAccentBlue, bg = 'NONE'})
-    hl(0, 'Special', {fg = c.nsaYellowOrange, bg = 'NONE'})
+    hl(0, 'Special', {fg = c.nsaRed, bg = 'NONE'})
     hl(0, 'SpecialChar', {fg = c.nsaFront, bg = 'NONE'})
     hl(0, 'Tag', {fg = c.nsaFront, bg = 'NONE'})
     hl(0, 'Delimiter', {fg = c.nsaFront, bg = 'NONE'})
@@ -86,19 +80,17 @@ themes.WhiteDarkness.set_highlights = function(c, opts)
     hl(0, 'Conceal', {fg = c.nsaFront, bg = c.nsaBack})
     hl(0, 'Ignore', {fg = c.nsaFront, bg = 'NONE'})
     hl(0, 'Error',
-       {fg = c.nsaRed, bg = c.nsaBack, undercurl = true, sp = c.nsaRed})
+       {fg = c.nsaErrorRed, bg = c.nsaBack, undercurl = true, sp = c.nsaRed})
     hl(0, 'Todo', {fg = c.nsaYellowOrange, bg = c.nsaBack, bold = true})
-    hl(0, 'SpellBad', {fg = 'NONE', undercurl = true, sp = c.nsaRed})
+    hl(0, 'SpellBad', {fg = 'NONE', undercurl = true, sp = c.nsaErrorRed})
     hl(0, 'SpellCap', {fg = 'NONE', undercurl = true, sp = c.nsaYellow})
     hl(0, 'SpellRare', {fg = 'NONE', undercurl = true, sp = c.nsaPurple})
     hl(0, 'SpellLocal', {fg = 'NONE', undercurl = true, sp = c.nsaBlue})
-    hl(0, 'Whitespace', {fg = isDark and c.nsaLineNumber or c.nsaTabOther})
+    hl(0, 'Whitespace', {fg = c.nsaLineNumber})
     hl(0, 'NormalFloat', {bg = c.nsaPopupBack})
     hl(0, 'WinBar', {fg = c.nsaFront, bg = c.nsaBack, bold = true})
     hl(0, 'WinBarNc', {fg = c.nsaFront, bg = c.nsaBack})
 end
-
-themes.SummerTime = {}
 
 themes.RoaringTides = {}
 

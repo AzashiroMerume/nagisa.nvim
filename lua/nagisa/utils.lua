@@ -1,4 +1,4 @@
-local M = {}
+local N = {}
 local PATH_SEP = vim.loop.os_uname().version:match("Windows") and "\\" or "/"
 
 local get_compiled_path = function(theme_name)
@@ -7,7 +7,7 @@ local get_compiled_path = function(theme_name)
     }, PATH_SEP)
 end
 
-function M.compile(theme_name, theme, opts, colors)
+function N.compile(theme_name, theme, opts, colors)
     vim.loop.fs_mkdir(vim.fn.stdpath("state") .. PATH_SEP .. "nagisa", 448)
 
     local fname = get_compiled_path(theme_name)
@@ -46,7 +46,7 @@ end
 
 ---@param theme_name string
 ---@return boolean status
-function M.load_compiled(theme_name)
+function N.load_compiled(theme_name)
     local f = loadfile(get_compiled_path(theme_name))
     if f then
         f()
@@ -55,4 +55,4 @@ function M.load_compiled(theme_name)
     return false
 end
 
-return M
+return N

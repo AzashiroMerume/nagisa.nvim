@@ -4,7 +4,7 @@ local config = require('nagisa.config')
 -- Pass setup to config module
 nagisa.setup = config.setup
 
-nagisa.theme = 'WhiteDarkness'
+nagisa.theme = 'EndOfTheWorld'
 
 ---@param style? string
 nagisa.load = function(theme_name)
