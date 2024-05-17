@@ -2,11 +2,12 @@ local nagisa = {}
 local config = require('nagisa.config')
 
 -- Pass setup to config module
-nagisa.setup = config.setup
+nagisa.setup = function(user_opts)
+    config.setup(user_opts)
+    nagisa.theme = config.opts.theme
+end
 
-nagisa.theme = 'EndOfTheWorld'
-
----@param style? string
+---@param theme_name? string
 nagisa.load = function(theme_name)
     local utils = require('nagisa.utils')
 
@@ -15,18 +16,19 @@ nagisa.load = function(theme_name)
 
     vim.o.termguicolors = true
 
-    nagisa.theme = theme_name or nagisa.theme
+    nagisa.theme = theme_name or config.opts.theme or nagisa.theme
 
-    nagisa.compile()
+    if not utils.load_compiled(nagisa.theme) then
+        nagisa.compile()
+        utils.load_compiled(nagisa.theme)
+    end
 end
 
 function nagisa.compile()
     local utils = require('nagisa.utils')
-    local config = require('nagisa.config')
     local colors = require('nagisa.colors').get_colors(config.opts)
-    local themes = require('nagisa.themes')
 
-    utils.compile(nagisa.theme, themes[nagisa.theme], config.opts, colors)
+    utils.compile(nagisa.theme, config.opts, colors)
 end
 
 vim.api.nvim_create_user_command("NagisaCompile", function()

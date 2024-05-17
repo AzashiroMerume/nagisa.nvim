@@ -13,11 +13,11 @@ colors.lightblue = '#5CB6F8'
 colors.yellow = '#ffaf00'
 colors.pink = '#DDB6F2'
 
-local bg_normal = config.opts.transparent and 'NONE' or colors.bg2
-local bg_replace = config.opts.transparent and 'NONE' or colors.bg2
-local bg_insert = config.opts.transparent and 'NONE' or colors.bg2
-local bg_terminal = config.opts.transparent and 'NONE' or colors.bg2
-local bg_command = config.opts.transparent and 'NONE' or colors.bg2
+local bg_normal = colors.bg2
+local bg_replace = colors.bg2
+local bg_insert = colors.bg2
+local bg_terminal = colors.bg2
+local bg_command = colors.bg2
 
 nagisa.normal = {
     a = {fg = colors.fg, bg = colors.blue, gui = 'bold'},

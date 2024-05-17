@@ -1,283 +1,312 @@
-local hl = vim.api.nvim_set_hl
-
 local function setup(c, opts)
-    -- Gitgutter
-    hl(0, 'GitGutterAdd', {fg = c.nsaGreen, bg = 'NONE'})
-    hl(0, 'GitGutterChange', {fg = c.nsaYellow, bg = 'NONE'})
-    hl(0, 'GitGutterDelete', {fg = c.nsaRed, bg = 'NONE'})
+    local highlights = {
+        -- GitGutter
+        ['GitGutterAdd'] = {fg = c.nsaGreen, bg = 'NONE'},
+        ['GitGutterChange'] = {fg = c.nsaYellow, bg = 'NONE'},
+        ['GitGutterDelete'] = {fg = c.nsaRed, bg = 'NONE'},
 
-    -- Git Signs
-    hl(0, 'GitSignsAdd', {fg = c.nsaGreen, bg = 'NONE'})
-    hl(0, 'GitSignsChange', {fg = c.nsaYellow, bg = 'NONE'})
-    hl(0, 'GitSignsDelete', {fg = c.nsaRed, bg = 'NONE'})
-    hl(0, 'GitSignsAddLn', {fg = c.nsaBack, bg = c.nsaGreen})
-    hl(0, 'GitSignsChangeLn', {fg = c.nsaBack, bg = c.nsaYellow})
-    hl(0, 'GitSignsDeleteLn', {fg = c.nsaBack, bg = c.nsaRed})
+        -- GitSigns
+        ['GitSignsAdd'] = {fg = c.nsaGreen, bg = 'NONE'},
+        ['GitSignsChange'] = {fg = c.nsaYellow, bg = 'NONE'},
+        ['GitSignsDelete'] = {fg = c.nsaRed, bg = 'NONE'},
+        ['GitSignsAddLn'] = {fg = c.nsaBack, bg = c.nsaGreen},
+        ['GitSignsChangeLn'] = {fg = c.nsaBack, bg = c.nsaYellow},
+        ['GitSignsDeleteLn'] = {fg = c.nsaBack, bg = c.nsaRed},
 
-    -- NvimTree
-    hl(0, 'NvimTreeRootFolder', {fg = c.nsaFront, bg = 'NONE', bold = true})
-    hl(0, 'NvimTreeGitDirty', {fg = c.nsaYellow, bg = 'NONE'})
-    hl(0, 'NvimTreeGitNew', {fg = c.nsaGreen, bg = 'NONE'})
-    hl(0, 'NvimTreeImageFile', {fg = c.nsaViolet, bg = 'NONE'})
-    hl(0, 'NvimTreeEmptyFolderName', {fg = c.nsaGray, bg = 'NONE'})
-    hl(0, 'NvimTreeFolderName', {fg = c.nsaFront, bg = 'NONE'})
-    hl(0, 'NvimTreeSpecialFile', {fg = c.nsaPink, bg = 'NONE', underline = true})
-    hl(0, 'NvimTreeNormal', {
-        fg = c.nsaFront,
-        bg = opts.disable_nvimtree_bg and c.nsaBack or c.blackishBlue
-    })
-    hl(0, 'NvimTreeCursorLine', {
-        fg = 'NONE',
-        bg = opts.disable_nvimtree_bg and c.grayVeryDark or c.purpleDark
-    })
-    hl(0, 'NvimTreeVertSplit', {
-        fg = opts.disable_nvimtree_bg and c.grayDarkish or c.nsaBack,
-        bg = c.nsaBack
-    })
-    hl(0, 'NvimTreeEndOfBuffer',
-       {fg = opts.disable_nvimtree_bg and c.grayVeryDark or c.blackishBlue})
-    hl(0, 'NvimTreeOpenedFolderName', {
-        fg = 'NONE',
-        bg = opts.disable_nvimtree_bg and c.grayVeryDark or c.blackishBlue
-    })
-    hl(0, 'NvimTreeGitRenamed', {fg = c.greenPastel2, bg = 'NONE'})
-    hl(0, 'NvimTreeGitIgnored', {fg = c.grayDark2, bg = 'NONE'})
-    hl(0, 'NvimTreeGitDeleted', {fg = c.redPastel, bg = 'NONE'})
-    hl(0, 'NvimTreeGitStaged', {fg = c.yellowPastel, bg = 'NONE'})
-    hl(0, 'NvimTreeGitMerge', {fg = c.greenPastel2, bg = 'NONE'})
-    hl(0, 'NvimTreeGitDirty', {fg = c.yellowPastel, bg = 'NONE'})
-    hl(0, 'NvimTreeGitNew', {fg = c.greenPastel, bg = 'NONE'})
+        -- NvimTree
+        ['NvimTreeRootFolder'] = {fg = c.nsaFront, bg = 'NONE', bold = true},
+        ['NvimTreeGitDirty'] = {fg = c.nsaYellow, bg = 'NONE'},
+        ['NvimTreeGitNew'] = {fg = c.nsaGreen, bg = 'NONE'},
+        ['NvimTreeImageFile'] = {fg = c.nsaViolet, bg = 'NONE'},
+        ['NvimTreeEmptyFolderName'] = {fg = c.nsaGray, bg = 'NONE'},
+        ['NvimTreeFolderName'] = {fg = c.nsaFront, bg = 'NONE'},
+        ['NvimTreeSpecialFile'] = {
+            fg = c.nsaPink,
+            bg = 'NONE',
+            underline = true
+        },
+        ['NvimTreeNormal'] = {
+            fg = c.nsaFront,
+            bg = opts.disable_nvimtree_bg and c.nsaBack or c.blackishBlue
+        },
+        ['NvimTreeCursorLine'] = {
+            fg = 'NONE',
+            bg = opts.disable_nvimtree_bg and c.grayVeryDark or c.purpleDark
+        },
+        ['NvimTreeVertSplit'] = {
+            fg = opts.disable_nvimtree_bg and c.grayDarkish or c.nsaBack,
+            bg = c.nsaBack
+        },
+        ['NvimTreeEndOfBuffer'] = {
+            fg = opts.disable_nvimtree_bg and c.grayVeryDark or c.blackishBlue
+        },
+        ['NvimTreeOpenedFolderName'] = {
+            fg = 'NONE',
+            bg = opts.disable_nvimtree_bg and c.grayVeryDark or c.blackishBlue
+        },
+        ['NvimTreeGitRenamed'] = {fg = c.greenPastel2, bg = 'NONE'},
+        ['NvimTreeGitIgnored'] = {fg = c.grayDark2, bg = 'NONE'},
+        ['NvimTreeGitDeleted'] = {fg = c.redPastel, bg = 'NONE'},
+        ['NvimTreeGitStaged'] = {fg = c.yellowPastel, bg = 'NONE'},
+        ['NvimTreeGitMerge'] = {fg = c.greenPastel2, bg = 'NONE'},
+        ['NvimTreeGitDirty'] = {fg = c.yellowPastel, bg = 'NONE'},
+        ['NvimTreeGitNew'] = {fg = c.greenPastel, bg = 'NONE'},
 
-    -- Bufferline
-    hl(0, 'BufferLineIndicatorSelected', {fg = c.blackishBlue, bg = 'NONE'})
-    hl(0, 'BufferLineFill',
-       {fg = 'NONE', bg = opts.transparent and c.nsaBack or c.blackishBlue})
+        -- BufferLine        
+        ['BufferLineIndicatorSelected'] = {fg = c.blackishBlue, bg = 'NONE'},
+        ['BufferLineFill'] = {fg = 'NONE', bg = c.blackishBlue},
+        ['BufferCurrent'] = {fg = c.nsaFront, bg = c.purpleDark},
+        ['BufferCurrentIndex'] = {fg = c.nsaFront, bg = c.purpleDark},
+        ['BufferCurrentMod'] = {fg = c.nsaYellowOrange, bg = c.purpleDark},
+        ['BufferCurrentSign'] = {fg = c.nsaFront, bg = c.purpleDark},
+        ['BufferCurrentTarget'] = {fg = c.nsaRed, bg = c.purpleDark},
+        ['BufferVisible'] = {fg = c.nsaGray, bg = c.purpleDark},
+        ['BufferVisibleIndex'] = {fg = c.nsaGray, bg = c.purpleDark},
+        ['BufferVisibleMod'] = {fg = c.nsaYellowOrange, bg = c.purpleDark},
+        ['BufferVisibleSign'] = {fg = c.nsaGray, bg = c.purpleDark},
+        ['BufferVisibleTarget'] = {fg = c.nsaRed, bg = c.purpleDark},
+        ['BufferInactive'] = {fg = c.nsaGray, bg = c.grayDark},
+        ['BufferInactiveIndex'] = {fg = c.nsaGray, bg = c.grayDark},
+        ['BufferInactiveMod'] = {fg = c.nsaYellowOrange, bg = c.grayDark},
+        ['BufferInactiveSign'] = {fg = c.nsaGray, bg = c.grayDark},
+        ['BufferInactiveTarget'] = {fg = c.nsaRed, bg = c.grayDark},
+        ['BufferTabpage'] = {fg = c.nsaFront, bg = c.grayDark},
+        ['BufferTabpageFill'] = {fg = c.nsaFront, bg = c.grayDark},
+        ['BufferTabpages'] = {fg = c.nsaFront, bg = c.grayDark},
+        ['BufferTabpagesFill'] = {fg = c.nsaFront, bg = c.grayDark},
 
-    -- BarBar
-    hl(0, 'BufferCurrent', {fg = c.nsaFront, bg = c.purpleDark})
-    hl(0, 'BufferCurrentIndex', {fg = c.nsaFront, bg = c.purpleDark})
-    hl(0, 'BufferCurrentMod', {fg = c.nsaYellowOrange, bg = c.purpleDark})
-    hl(0, 'BufferCurrentSign', {fg = c.nsaFront, bg = c.purpleDark})
-    hl(0, 'BufferCurrentTarget', {fg = c.nsaRed, bg = c.purpleDark})
-    hl(0, 'BufferVisible', {fg = c.nsaGray, bg = c.purpleDark})
-    hl(0, 'BufferVisibleIndex', {fg = c.nsaGray, bg = c.purpleDark})
-    hl(0, 'BufferVisibleMod', {fg = c.nsaYellowOrange, bg = c.purpleDark})
-    hl(0, 'BufferVisibleSign', {fg = c.nsaGray, bg = c.purpleDark})
-    hl(0, 'BufferVisibleTarget', {fg = c.nsaRed, bg = c.purpleDark})
-    hl(0, 'BufferInactive', {fg = c.nsaGray, bg = c.grayDark})
-    hl(0, 'BufferInactiveIndex', {fg = c.nsaGray, bg = c.grayDark})
-    hl(0, 'BufferInactiveMod', {fg = c.nsaYellowOrange, bg = c.grayDark})
-    hl(0, 'BufferInactiveSign', {fg = c.nsaGray, bg = c.grayDark})
-    hl(0, 'BufferInactiveTarget', {fg = c.nsaRed, bg = c.grayDark})
-    hl(0, 'BufferTabpage', {fg = c.nsaFront, bg = c.grayDark})
-    hl(0, 'BufferTabpageFill', {fg = c.nsaFront, bg = c.grayDark})
-    hl(0, 'BufferTabpages', {fg = c.nsaFront, bg = c.grayDark})
-    hl(0, 'BufferTabpagesFill', {fg = c.nsaFront, bg = c.grayDark})
+        -- IndentBlankline
+        ['IndentBlanklineContextChar'] = {
+            fg = c.grayMid3,
+            bg = 'NONE',
+            nocombine = true
+        },
+        ['IndentBlanklineContextStart'] = {
+            sp = c.grayMid3,
+            bg = 'NONE',
+            nocombine = true,
+            underline = true
+        },
+        ['IndentBlanklineChar'] = {
+            fg = c.grayDark3,
+            bg = 'NONE',
+            nocombine = true
+        },
+        ['IndentBlanklineSpaceChar'] = {
+            fg = c.grayDark3,
+            bg = 'NONE',
+            nocombine = true
+        },
+        ['IndentBlanklineSpaceCharBlankline'] = {
+            fg = c.grayDark3,
+            bg = 'NONE',
+            nocombine = true
+        },
 
-    -- IndentBlankLine
-    hl(0, 'IndentBlanklineContextChar',
-       {fg = c.grayMid3, bg = 'NONE', nocombine = true})
-    hl(0, 'IndentBlanklineContextStart', {
-        sp = c.grayMid3,
-        bg = 'NONE',
-        nocombine = true,
-        underline = true
-    })
-    hl(0, 'IndentBlanklineChar',
-       {fg = c.grayDark3, bg = 'NONE', nocombine = true})
-    hl(0, 'IndentBlanklineSpaceChar',
-       {fg = c.grayDark3, bg = 'NONE', nocombine = true})
-    hl(0, 'IndentBlanklineSpaceCharBlankline',
-       {fg = c.grayDark3, bg = 'NONE', nocombine = true})
+        -- Neotest
+        ['NeotestAdapterName'] = {fg = c.nsaFront, bold = true},
+        ['NeotestDir'] = {fg = c.nsaBlue},
+        ['NeotestExpandMarker'] = {fg = c.nsaDimHighlight},
+        ['NeotestFailed'] = {fg = c.nsaRed},
+        ['NeotestFile'] = {fg = c.nsaBlue},
+        ['NeotestFocused'] = {bold = true},
+        ['NeotestIndent'] = {fg = c.nsaDimHighlight},
+        ['NeotestMarked'] = {fg = c.nsaYellowOrange, bold = true},
+        ['NeotestNamespace'] = {fg = c.nsaPink},
+        ['NeotestPassed'] = {fg = c.nsaGreenBlue},
+        ['NeotestRunning'] = {fg = c.nsaDarkYellow},
+        ['NeotestSkipped'] = {fg = c.nsaBlue},
+        ['NeotestTarget'] = {fg = c.nsaLightRed},
+        ['NeotestWatching'] = {fg = c.nsaDarkYellow},
+        ['NeotestWinSelect'] = {fg = c.nsaBlue, bold = true},
 
-    -- Neotest
-    hl(0, 'NeotestAdapterName', {fg = c.nsaFront, bold = true})
-    hl(0, 'NeotestDir', {fg = c.nsaBlue})
-    hl(0, 'NeotestExpandMarker', {fg = c.nsaDimHighlight})
-    hl(0, 'NeotestFailed', {fg = c.nsaRed})
-    hl(0, 'NeotestFile', {fg = c.nsaBlue})
-    hl(0, 'NeotestFocused', {bold = true})
-    hl(0, 'NeotestIndent', {fg = c.nsaDimHighlight})
-    hl(0, 'NeotestMarked', {fg = c.nsaYellowOrange, bold = true})
-    hl(0, 'NeotestNamespace', {fg = c.nsaPink})
-    hl(0, 'NeotestPassed', {fg = c.nsaGreenBlue})
-    hl(0, 'NeotestRunning', {fg = c.nsaDarkYellow})
-    hl(0, 'NeotestSkipped', {fg = c.nsaBlue})
-    hl(0, 'NeotestTarget', {fg = c.nsaLightRed})
-    hl(0, 'NeotestWatching', {fg = c.nsaDarkYellow})
-    hl(0, 'NeotestWinSelect', {fg = c.nsaBlue, bold = true})
+        -- LSP
+        ['DiagnosticOk'] = {fg = c.nsaGreenBlue, bg = 'NONE'},
+        ['DiagnosticError'] = {fg = c.nsaFront, bg = c.nsaErrorRed},
+        ['DiagnosticWarn'] = {fg = c.nsaYellow, bg = 'NONE'},
+        ['DiagnosticInfo'] = {fg = c.nsaBlue, bg = 'NONE'},
+        ['DiagnosticHint'] = {fg = c.nsaBlue, bg = 'NONE'},
+        ['DiagnosticUnnecessary'] = {fg = c.nsaDisabledBlue, bg = 'NONE'},
+        ['DiagnosticUnderlineError'] = {
+            fg = 'NONE',
+            bg = 'NONE',
+            undercurl = true,
+            sp = c.nsaErrorRed
+        },
+        ['DiagnosticUnderlineWarn'] = {
+            fg = 'NONE',
+            bg = 'NONE',
+            undercurl = true,
+            sp = c.nsaGreen
+        },
+        ['DiagnosticUnderlineInfo'] = {
+            fg = 'NONE',
+            bg = 'NONE',
+            undercurl = true,
+            sp = c.nsaBlue
+        },
+        ['DiagnosticUnderlineHint'] = {
+            fg = 'NONE',
+            bg = 'NONE',
+            undercurl = true,
+            sp = c.nsaBlue
+        },
+        ['LspReferenceText'] = {fg = 'NONE', bg = c.grayDarker},
+        ['LspReferenceRead'] = {fg = 'NONE', bg = c.grayDarker},
+        ['LspReferenceWrite'] = {fg = 'NONE', bg = c.grayDarker},
 
-    -- LSP
-    hl(0, 'DiagnosticOk', {fg = c.nsaGreenBlue, bg = 'NONE'})
-    hl(0, 'DiagnosticError', {fg = c.nsaFront, bg = c.nsaErrorRed})
-    hl(0, 'DiagnosticWarn', {fg = c.nsaYellow, bg = 'NONE'})
-    hl(0, 'DiagnosticInfo', {fg = c.nsaBlue, bg = 'NONE'})
-    hl(0, 'DiagnosticHint', {fg = c.nsaBlue, bg = 'NONE'})
-    hl(0, 'DiagnosticUnnecessary', {fg = c.nsaDisabledBlue, bg = 'NONE'})
-    hl(0, 'DiagnosticUnderlineError',
-       {fg = 'NONE', bg = 'NONE', undercurl = true, sp = c.nsaRnsaErrorReded})
-    hl(0, 'DiagnosticUnderlineWarn',
-       {fg = 'NONE', bg = 'NONE', undercurl = true, sp = c.nsaGreen})
-    hl(0, 'DiagnosticUnderlineInfo',
-       {fg = 'NONE', bg = 'NONE', undercurl = true, sp = c.nsaBlue})
-    hl(0, 'DiagnosticUnderlineHint',
-       {fg = 'NONE', bg = 'NONE', undercurl = true, sp = c.nsaBlue})
-    hl(0, 'LspReferenceText', {fg = 'NONE', bg = c.grayDarker})
-    hl(0, 'LspReferenceRead', {fg = 'NONE', bg = c.grayDarker})
-    hl(0, 'LspReferenceWrite', {fg = 'NONE', bg = c.grayDarker})
+        -- coc.nvim
+        ['CocHighlightText'] = {fg = 'NONE', bg = c.grayDarker},
+        ['CocHighlightRead'] = {fg = 'NONE', bg = c.grayDarker},
+        ['CocHighlightWrite'] = {fg = 'NONE', bg = c.grayDarker},
 
-    -- COC.nvim
-    hl(0, 'CocHighlightText', {fg = 'NONE', bg = c.grayDarker})
-    hl(0, 'CocHighlightRead', {fg = 'NONE', bg = c.grayDarker})
-    hl(0, 'CocHighlightWrite', {fg = 'NONE', bg = c.grayDarker})
+        -- nvim-cope
+        ['CmpItemKindVariable'] = {fg = c.nsaLightBlue, bg = 'NONE'},
+        ['CmpItemKindInterface'] = {fg = c.nsaLightBlue, bg = 'NONE'},
+        ['CmpItemKindText'] = {fg = c.nsaLightBlue, bg = 'NONE'},
+        ['CmpItemKindFunction'] = {fg = c.nsaPink, bg = 'NONE'},
+        ['CmpItemKindMethod'] = {fg = c.nsaPink, bg = 'NONE'},
+        ['CmpItemKindKeyword'] = {fg = c.nsaFront, bg = 'NONE'},
+        ['CmpItemKindProperty'] = {fg = c.nsaFront, bg = 'NONE'},
+        ['CmpItemKindUnit'] = {fg = c.nsaFront, bg = 'NONE'},
+        ['CmpItemKindConstructor'] = {fg = c.nsaUiOrange, bg = 'NONE'},
+        ['CmpItemMenu'] = {fg = c.grayLight, bg = 'NONE'},
+        ['CmpItemAbbr'] = {fg = c.nsaFront, bg = 'NONE'},
+        ['CmpItemAbbrDeprecated'] = {
+            fg = c.grayMidDark,
+            bg = c.blackishGray,
+            strikethrough = true
+        },
+        ['CmpItemAbbrMatch'] = {fg = c.nsaMediumBlue, bg = 'NONE', bold = true},
+        ['CmpItemAbbrMatchFuzzy'] = {
+            fg = c.nsaMediumBlue,
+            bg = 'NONE',
+            bold = true
+        },
 
-    -- Nvim compe
-    hl(0, 'CmpItemKindVariable', {fg = c.nsaLightBlue, bg = 'NONE'})
-    hl(0, 'CmpItemKindInterface', {fg = c.nsaLightBlue, bg = 'NONE'})
-    hl(0, 'CmpItemKindText', {fg = c.nsaLightBlue, bg = 'NONE'})
-    hl(0, 'CmpItemKindFunction', {fg = c.nsaPink, bg = 'NONE'})
-    hl(0, 'CmpItemKindMethod', {fg = c.nsaPink, bg = 'NONE'})
-    hl(0, 'CmpItemKindKeyword', {fg = c.nsaFront, bg = 'NONE'})
-    hl(0, 'CmpItemKindProperty', {fg = c.nsaFront, bg = 'NONE'})
-    hl(0, 'CmpItemKindUnit', {fg = c.nsaFront, bg = 'NONE'})
-    hl(0, 'CmpItemKindConstructor', {fg = c.nsaUiOrange, bg = 'NONE'})
-    hl(0, 'CmpItemMenu', {fg = c.grayLight, bg = 'NONE'})
-    hl(0, 'CmpItemAbbr', {fg = c.nsaFront, bg = 'NONE'})
-    hl(0, 'CmpItemAbbrDeprecated',
-       {fg = c.grayMidDark, bg = c.blackishGray, strikethrough = true})
-    hl(0, 'CmpItemAbbrMatch', {fg = c.nsaMediumBlue, bg = 'NONE', bold = true})
-    hl(0, 'CmpItemAbbrMatchFuzzy',
-       {fg = c.nsaMediumBlue, bg = 'NONE', bold = true})
+        -- HiPhish/rainbow-delimiters.nvim
+        ['RainbowDelimiterRed'] = {fg = c.nsaPink, bg = 'NONE'},
+        ['RainbowDelimiterOrange'] = {fg = c.nsaOrange, bg = 'NONE'},
+        ['RainbowDelimiterYellow'] = {fg = c.nsaYellowOrange, bg = 'NONE'},
+        ['RainbowDelimiterGreen'] = {fg = c.nsaGreen, bg = 'NONE'},
+        ['RainbowDelimiterCyan'] = {fg = c.nsaGreenBlue, bg = 'NONE'},
+        ['RainbowDelimiterBlue'] = {fg = c.nsaMediumBlue, bg = 'NONE'},
+        ['RainbowDelimiterViolet'] = {fg = c.nsaViolet, bg = 'NONE'},
 
-    -- HiPhish/rainbow-delimiters.nvim
-    hl(0, 'RainbowDelimiterRed', {fg = c.nsaPink, bg = 'NONE'})
-    hl(0, 'RainbowDelimiterOrange', {fg = c.nsaOrange, bg = 'NONE'})
-    hl(0, 'RainbowDelimiterYellow', {fg = c.nsaYellowOrange, bg = 'NONE'})
-    hl(0, 'RainbowDelimiterGreen', {fg = c.nsaGreen, bg = 'NONE'})
-    hl(0, 'RainbowDelimiterCyan', {fg = c.nsaGreenBlue, bg = 'NONE'})
-    hl(0, 'RainbowDelimiterBlue', {fg = c.nsaMediumBlue, bg = 'NONE'})
-    hl(0, 'RainbowDelimiterViolet', {fg = c.nsaViolet, bg = 'NONE'})
+        -- rcarriga/nvim-dap-ui
+        ['DapUIBreakpointsCurrentLine'] = {fg = c.nsaGreenBlue, bold = true},
+        ['DapUIBreakpointsDisabledLine'] = {fg = c.nsaDimHighlight},
+        ['DapUIBreakpointsInfo'] = {fg = c.nsaGreenBlue},
+        ['DapUIBreakpointsLine'] = {fg = c.nsaPink},
+        ['DapUIBreakpointsPath'] = {fg = c.nsaPink},
+        ['DapUICurrentFrameName'] = {fg = c.nsaGreenBlue, bold = true},
+        ['DapUIDecoration'] = {fg = c.nsaPink},
+        ['DapUIFloatBorder'] = {fg = c.nsaPink},
+        ['DapUILineNumber'] = {fg = c.nsaPink},
+        ['DapUIModifiedValue'] = {fg = c.nsaPink, bold = true},
+        ['DapUIPlayPause'] = {fg = c.nsaGreenBlue},
+        ['DapUIPlayPauseNC'] = {fg = c.nsaGreenBlue},
+        ['DapUIRestart'] = {fg = c.nsaGreenBlue},
+        ['DapUIRestartNC'] = {fg = c.nsaGreenBlue},
+        ['DapUIScope'] = {fg = c.nsaPink},
+        ['DapUISource'] = {fg = c.nsaMediumBlue},
+        ['DapUIStepBack'] = {fg = c.nsaPink},
+        ['DapUIStepBackNC'] = {fg = c.nsaPink},
+        ['DapUIStepInto'] = {fg = c.nsaPink},
+        ['DapUIStepIntoNC'] = {fg = c.nsaPink},
+        ['DapUIStepOut'] = {fg = c.nsaPink},
+        ['DapUIStepOutNC'] = {fg = c.nsaPink},
+        ['DapUIStepOver'] = {fg = c.nsaPink},
+        ['DapUIStepOverNC'] = {fg = c.nsaPink},
+        ['DapUIStop'] = {fg = c.nsaRed},
+        ['DapUIStopNC'] = {fg = c.nsaRed},
+        ['DapUIStoppedThread'] = {fg = c.nsaPink},
+        ['DapUIThread'] = {fg = c.nsaGreenBlue},
+        ['DapUIType'] = {fg = c.nsaPink},
+        ['DapUIUnavailable'] = {fg = c.nsaDimHighlight},
+        ['DapUIUnavailableNC'] = {fg = c.nsaDimHighlight},
+        ['DapUIWatchesEmpty'] = {fg = c.nsaDimHighlight},
+        ['DapUIWatchesError'] = {fg = c.nsaRed},
+        ['DapUIWatchesValue'] = {fg = c.nsaGreenBlue},
+        ['DapUIWinSelect'] = {fg = c.nsaPink, bold = true},
 
-    -- rcarriga/nvim-dap-ui
-    -- Source: https://github.com/rcarriga/nvim-dap-ui/blob/master/lua/dapui/config/highlights.lua
-    hl(0, 'DapUIBreakpointsCurrentLine', {fg = c.nsaGreenBlue, bold = true})
-    hl(0, 'DapUIBreakpointsDisabledLine', {fg = c.nsaDimHighlight})
-    hl(0, 'DapUIBreakpointsInfo', {fg = c.nsaGreenBlue})
-    hl(0, 'DapUIBreakpointsLine', {fg = c.nsaPink})
-    hl(0, 'DapUIBreakpointsPath', {fg = c.nsaPink})
-    hl(0, 'DapUICurrentFrameName', {fg = c.nsaGreenBlue, bold = true})
-    hl(0, 'DapUIDecoration', {fg = c.nsaPink})
-    hl(0, 'DapUIFloatBorder', {fg = c.nsaPink})
-    hl(0, 'DapUILineNumber', {fg = c.nsaPink})
-    hl(0, 'DapUIModifiedValue', {fg = c.nsaPink, bold = true})
-    hl(0, 'DapUIPlayPause', {fg = c.nsaGreenBlue})
-    hl(0, 'DapUIPlayPauseNC', {fg = c.nsaGreenBlue})
-    hl(0, 'DapUIRestart', {fg = c.nsaGreenBlue})
-    hl(0, 'DapUIRestartNC', {fg = c.nsaGreenBlue})
-    hl(0, 'DapUIScope', {fg = c.nsaPink})
-    hl(0, 'DapUISource', {fg = c.nsaMediumBlue})
-    hl(0, 'DapUIStepBack', {fg = c.nsaPink})
-    hl(0, 'DapUIStepBackNC', {fg = c.nsaPink})
-    hl(0, 'DapUIStepInto', {fg = c.nsaPink})
-    hl(0, 'DapUIStepIntoNC', {fg = c.nsaPink})
-    hl(0, 'DapUIStepOut', {fg = c.nsaPink})
-    hl(0, 'DapUIStepOutNC', {fg = c.nsaPink})
-    hl(0, 'DapUIStepOver', {fg = c.nsaPink})
-    hl(0, 'DapUIStepOverNC', {fg = c.nsaPink})
-    hl(0, 'DapUIStop', {fg = c.nsaRed})
-    hl(0, 'DapUIStopNC', {fg = c.nsaRed})
-    hl(0, 'DapUIStoppedThread', {fg = c.nsaPink})
-    hl(0, 'DapUIThread', {fg = c.nsaGreenBlue})
-    hl(0, 'DapUIType', {fg = c.nsaPink})
-    hl(0, 'DapUIUnavailable', {fg = c.nsaDimHighlight})
-    hl(0, 'DapUIUnavailableNC', {fg = c.nsaDimHighlight})
-    hl(0, 'DapUIWatchesEmpty', {fg = c.nsaDimHighlight})
-    hl(0, 'DapUIWatchesError', {fg = c.nsaRed})
-    hl(0, 'DapUIWatchesValue', {fg = c.nsaGreenBlue})
-    hl(0, 'DapUIWinSelect', {fg = c.nsaPink, bold = true})
+        -- Dashboard
+        ['DashboardHeader'] = {fg = c.nsaBlue, bg = 'NONE'},
+        ['DashboardDesc'] = {fg = c.nsaYellowOrange, bg = 'NONE'},
+        ['DashboardIcon'] = {fg = c.nsaYellowOrange, bg = 'NONE'},
+        ['DashboardShortCut'] = {fg = c.nsaPink, bg = 'NONE'},
+        ['DashboardKey'] = {fg = c.nsaWhite, bg = 'NONE'},
+        ['DashboardFooter'] = {fg = c.nsaBlue, bg = 'NONE', italic = true},
 
-    -- Dashboard
-    hl(0, 'DashboardHeader', {fg = c.nsaBlue, bg = 'NONE'})
-    hl(0, 'DashboardDesc', {fg = c.nsaYellowOrange, bg = 'NONE'})
-    hl(0, 'DashboardIcon', {fg = c.nsaYellowOrange, bg = 'NONE'})
-    hl(0, 'DashboardShortCut', {fg = c.nsaPink, bg = 'NONE'})
-    hl(0, 'DashboardKey', {fg = c.nsaWhite, bg = 'NONE'})
-    hl(0, 'DashboardFooter', {fg = c.nsaBlue, bg = 'NONE', italic = true})
+        -- Illuminate
+        ['illuminatedWord'] = {bg = c.grayDarker},
+        ['illuminatedCurWord'] = {bg = c.grayDarker},
+        ['IlluminatedWordText'] = {bg = c.grayDarker},
+        ['IlluminatedWordRead'] = {bg = c.grayDarker},
+        ['IlluminatedWordWrite'] = {bg = c.grayDarker},
 
-    -- Illuminate
-    hl(0, 'illuminatedWord', {bg = c.grayDarker})
-    hl(0, 'illuminatedCurWord', {bg = c.grayDarker})
-    hl(0, 'IlluminatedWordText', {bg = c.grayDarker})
-    hl(0, 'IlluminatedWordRead', {bg = c.grayDarker})
-    hl(0, 'IlluminatedWordWrite', {bg = c.grayDarker})
+        -- mini.statusline
+        ['MiniStatuslineModeNormal'] = {bg = c.blackishBlue, fg = c.nsaFront},
+        ['MiniStatuslineModeInsert'] = {bg = c.blackishBlue, fg = c.nsaFront},
+        ['MiniStatuslineModeVisual'] = {bg = c.blackishBlue, fg = c.nsaFront},
+        ['MiniStatuslineModeReplace'] = {bg = c.blackishBlue, fg = c.nsaFront},
+        ['MiniStatuslineModeCommand'] = {bg = c.blackishBlue, fg = c.nsaFront},
+        ['MiniStatuslineModeOther'] = {bg = c.blackishBlue, fg = c.nsaFront},
+        ['MiniStatuslineDevinfo'] = {bg = c.blackishBlue, fg = c.nsaFront},
+        ['MiniStatuslineFilename'] = {bg = c.purpleDark, fg = c.nsaFront},
+        ['MiniStatuslineFileinfo'] = {bg = c.grayMid, fg = c.nsaFront},
+        ['MiniStatuslineInactive'] = {bg = c.blackishBlue, fg = c.nsaFront},
 
-    -- mini.statusline
-    hl(0, 'MiniStatuslineModeNormal', {bg = c.blackishBlue, fg = c.nsaFront})
-    hl(0, 'MiniStatuslineModeInsert', {bg = c.blackishBlue, fg = c.nsaFront})
-    hl(0, 'MiniStatuslineModeVisual', {bg = c.blackishBlue, fg = c.nsaFront})
-    hl(0, 'MiniStatuslineModeReplace', {bg = c.blackishBlue, fg = c.nsaFront})
-    hl(0, 'MiniStatuslineModeCommand', {bg = c.blackishBlue, fg = c.nsaFront})
-    hl(0, 'MiniStatuslineModeOther', {bg = c.blackishBlue, fg = c.nsaFront})
-    hl(0, 'MiniStatuslineDevinfo', {bg = c.blackishBlue, fg = c.nsaFront})
-    hl(0, 'MiniStatuslineFilename', {bg = c.purpleDark, fg = c.nsaFront})
-    hl(0, 'MiniStatuslineFileinfo', {bg = c.grayMid, fg = c.nsaFront})
-    hl(0, 'MiniStatuslineInactive', {bg = c.blackishBlue, fg = c.nsaFront})
+        -- NeogitOrg/neogit
+        ['NeogitDiffAdd'] = {fg = c.greenPastel, bg = c.greenDark},
+        ['NeogitDiffAddHighlight'] = {fg = c.greenPastel, bg = c.greenLight},
+        ['NeogitDiffContext'] = {fg = c.grayLight, bg = c.blackishBlue},
+        ['NeogitDiffContextHighlight'] = {fg = c.grayLight, bg = c.purpleDark},
+        ['NeogitDiffDelete'] = {fg = c.redPastel, bg = c.redDark},
+        ['NeogitDiffDeleteHighlight'] = {fg = c.redPastel, bg = c.redLight},
+        ['NeogitDiffHeader'] = {fg = c.grayLighter, bg = c.nsaBack},
+        ['NeogitDiffHeaderHighlight'] = {fg = c.grayLighter, bg = c.nsaBack},
+        ['NeogitHunkHeader'] = {fg = c.yellowPastel, bg = c.blackishBlue},
+        ['NeogitHunkHeaderHighlight'] = {fg = c.yellowPastel, bg = c.purpleDark},
 
-    -- NeogitOrg/neogit
-    hl(0, 'NeogitDiffAdd', {fg = c.greenPastel, bg = c.greenDark})
-    hl(0, 'NeogitDiffAddHighlight',
-       {fg = c.greenPastel, bg = c.greenLight})
-    hl(0, 'NeogitDiffContext', {fg = c.grayLight, bg = c.blackishBlue})
-    hl(0, 'NeogitDiffContextHighlight',
-       {fg = c.grayLight, bg = c.purpleDark})
-    hl(0, 'NeogitDiffDelete', {fg = c.redPastel, bg = c.redDark})
-    hl(0, 'NeogitDiffDeleteHighlight',
-       {fg = c.redPastel, bg = c.redLight})
-    hl(0, 'NeogitDiffHeader', {fg = c.grayLighter, bg = c.nsaBack})
-    hl(0, 'NeogitDiffHeaderHighlight', {fg = c.grayLighter, bg = c.nsaBack})
-    hl(0, 'NeogitHunkHeader', {fg = c.yellowPastel, bg = c.blackishBlue})
-    hl(0, 'NeogitHunkHeaderHighlight',
-       {fg = c.yellowPastel, bg = c.purpleDark})
+        ['NvimTreeFolderIcon'] = {fg = c.nsaBlue, bg = 'NONE'},
+        ['NvimTreeIndentMarker'] = {fg = c.grayMid2, bg = 'NONE'},
 
-    hl(0, 'NvimTreeFolderIcon', {fg = c.nsaBlue, bg = 'NONE'})
-    hl(0, 'NvimTreeIndentMarker', {fg = c.grayMid2, bg = 'NONE'})
+        ['LspFloatWinNormal'] = {fg = c.nsaFront, bg = 'NONE'},
+        ['LspFloatWinBorder'] = {fg = c.grayMid2, bg = 'NONE'},
+        ['LspInfoBorder'] = {fg = c.grayMid2, bg = 'NONE'},
+        ['LspSagaHoverBorder'] = {fg = c.grayMid2, bg = 'NONE'},
+        ['LspSagaSignatureHelpBorder'] = {fg = c.grayMid2, bg = 'NONE'},
+        ['LspSagaCodeActionBorder'] = {fg = c.grayMid2, bg = 'NONE'},
+        ['LspSagaDefPreviewBorder'] = {fg = c.grayMid2, bg = 'NONE'},
+        ['LspLinesDiagBorder'] = {fg = c.grayMid2, bg = 'NONE'},
+        ['LspSagaRenameBorder'] = {fg = c.grayMid2, bg = 'NONE'},
+        ['LspSagaBorderTitle'] = {fg = c.grayMidDark, bg = 'NONE'},
+        ['LSPSagaDiagnosticTruncateLine'] = {fg = c.grayMid2, bg = 'NONE'},
+        ['LspSagaDiagnosticBorder'] = {fg = c.grayMid2, bg = 'NONE'},
+        ['LspSagaDiagnosticBorder'] = {fg = c.grayMid2, bg = 'NONE'},
+        ['LspSagaShTruncateLine'] = {fg = c.grayMid2, bg = 'NONE'},
+        ['LspSagaShTruncateLine'] = {fg = c.grayMid2, bg = 'NONE'},
+        ['LspSagaDocTruncateLine'] = {fg = c.grayMid2, bg = 'NONE'},
+        ['LspSagaRenameBorder'] = {fg = c.grayMid2, bg = 'NONE'},
+        ['LspSagaLspFinderBorder'] = {fg = c.grayMid2, bg = 'NONE'},
 
-    hl(0, 'LspFloatWinNormal', {fg = c.nsaFront, bg = 'NONE'})
-    hl(0, 'LspFloatWinBorder', {fg = c.grayMid2, bg = 'NONE'})
-    hl(0, 'LspInfoBorder', {fg = c.grayMid2, bg = 'NONE'})
-    hl(0, 'LspSagaHoverBorder', {fg = c.grayMid2, bg = 'NONE'})
-    hl(0, 'LspSagaSignatureHelpBorder', {fg = c.grayMid2, bg = 'NONE'})
-    hl(0, 'LspSagaCodeActionBorder', {fg = c.grayMid2, bg = 'NONE'})
-    hl(0, 'LspSagaDefPreviewBorder', {fg = c.grayMid2, bg = 'NONE'})
-    hl(0, 'LspLinesDiagBorder', {fg = c.grayMid2, bg = 'NONE'})
-    hl(0, 'LspSagaRenameBorder', {fg = c.grayMid2, bg = 'NONE'})
-    hl(0, 'LspSagaBorderTitle', {fg = c.grayMidDark, bg = 'NONE'})
-    hl(0, 'LSPSagaDiagnosticTruncateLine', {fg = c.grayMid2, bg = 'NONE'})
-    hl(0, 'LspSagaDiagnosticBorder', {fg = c.grayMid2, bg = 'NONE'})
-    hl(0, 'LspSagaDiagnosticBorder', {fg = c.grayMid2, bg = 'NONE'})
-    hl(0, 'LspSagaShTruncateLine', {fg = c.grayMid2, bg = 'NONE'})
-    hl(0, 'LspSagaShTruncateLine', {fg = c.grayMid2, bg = 'NONE'})
-    hl(0, 'LspSagaDocTruncateLine', {fg = c.grayMid2, bg = 'NONE'})
-    hl(0, 'LspSagaRenameBorder', {fg = c.grayMid2, bg = 'NONE'})
-    hl(0, 'LspSagaLspFinderBorder', {fg = c.grayMid2, bg = 'NONE'})
+        ['TelescopePromptBorder'] = {fg = c.grayMid2, bg = 'NONE'},
+        ['TelescopeResultsBorder'] = {fg = c.grayMid2, bg = 'NONE'},
+        ['TelescopePreviewBorder'] = {fg = c.grayMid2, bg = 'NONE'},
+        ['TelescopeNormal'] = {fg = c.nsaFront, bg = 'NONE'},
+        ['TelescopeSelection'] = {fg = c.nsaFront, bg = c.blueDark},
+        ['TelescopeMultiSelection'] = {fg = c.nsaFront, bg = c.blueDark},
+        ['TelescopeMatching'] = {fg = c.nsaMediumBlue, bg = 'NONE', bold = true},
+        ['TelescopePromptPrefix'] = {fg = c.nsaFront, bg = 'NONE'},
 
-    hl(0, 'TelescopePromptBorder', {fg = c.grayMid2, bg = 'NONE'})
-    hl(0, 'TelescopeResultsBorder', {fg = c.grayMid2, bg = 'NONE'})
-    hl(0, 'TelescopePreviewBorder', {fg = c.grayMid2, bg = 'NONE'})
-    hl(0, 'TelescopeNormal', {fg = c.nsaFront, bg = 'NONE'})
-    hl(0, 'TelescopeSelection', {fg = c.nsaFront, bg = c.blueDark})
-    hl(0, 'TelescopeMultiSelection',
-       {fg = c.nsaFront, bg = c.blueDark})
-    hl(0, 'TelescopeMatching', {fg = c.nsaMediumBlue, bg = 'NONE', bold = true})
-    hl(0, 'TelescopePromptPrefix', {fg = c.nsaFront, bg = 'NONE'})
+        -- Debugging
+        ['debugPC'] = {bg = '#4C4C19'},
 
-    -- Debugging
-    hl(0, 'debugPC', {bg = '#4C4C19'})
-
-    -- symbols-outline
-    -- white fg and lualine blue bg
-    hl(0, 'FocusedSymbol', {fg = '#ffffff', bg = c.nsaUiBlue})
-    hl(0, 'SymbolsOutlineConnector', {fg = c.grayMid2, bg = 'NONE'})
+        -- symbols-outline
+        ['FocusedSymbol'] = {fg = '#ffffff', bg = c.nsaUiBlue},
+        ['SymbolsOutlineConnector'] = {fg = c.grayMid2, bg = 'NONE'}
+    }
 
 end
 
