@@ -13,7 +13,6 @@ config.opts = {}
 
 ---@param user_opts? table
 config.setup = function(user_opts)
-    -- Backwards compatibility: let users still set settings with global vars
     local global_settings_opts = vim.tbl_extend('force', defaults, {
         theme = vim.g.nagisa_theme or defaults.theme,
         italic_comments = (vim.g.nagisa_italic_comment == true or
@@ -24,7 +23,6 @@ config.setup = function(user_opts)
             vim.g.nagisa_disable_nvim_tree_bg == 1)
     })
 
-    -- Override global vars settings with setup() settings
     config.opts = vim.tbl_extend('force', global_settings_opts, user_opts or {})
 end
 

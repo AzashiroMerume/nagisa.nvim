@@ -18,6 +18,11 @@ function h.setup(colors, opts)
         end
     end
 
+    for hl, spec in pairs(opts.group_overrides) do
+        if highlights[hl] and next(spec) then highlights[hl].link = nil end
+        highlights[hl] = vim.tbl_extend("force", highlights[hl] or {}, spec)
+    end
+
     return highlights
 end
 

@@ -1,7 +1,6 @@
 local nagisa = {}
 local config = require('nagisa.config')
 
--- Pass setup to config module
 nagisa.setup = function(user_opts)
     config.setup(user_opts)
     nagisa.theme = config.opts.theme

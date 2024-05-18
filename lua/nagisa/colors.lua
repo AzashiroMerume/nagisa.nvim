@@ -1,6 +1,7 @@
 local colors = {}
 
 colors.get_colors = function(opts)
+    local opts = opts or require('nagisa.config').opts
     local theme = opts.theme
     local colorSchemes = {
         EndOfTheWorld = {
@@ -62,7 +63,7 @@ colors.get_colors = function(opts)
         }
     }
 
-    local nagisaColors = colorSchemes[theme] or colorSchemes["EndOfTheWorld"]
+    local nagisaColors = colorSchemes[theme]
 
     -- Apply overrides if specified
     if opts.color_overrides then
