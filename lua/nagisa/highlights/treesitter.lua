@@ -47,7 +47,7 @@ local function setup(c, opts)
         ['@keyword.return'] = {fg = c.nsaPink, bg = 'NONE'},
         ['@keyword.exception'] = {fg = c.nsaPink, bg = 'NONE'},
         ['@keyword.import'] = {fg = c.nsaPink, bg = 'NONE'},
-        ['@operator'] = {fg = c.nsaOrange, bg = 'NONE'},
+        ['@operator'] = {fg = c.nsaPink, bg = 'NONE'},
         ['@type'] = {fg = c.nsaAccentBlue, bg = 'NONE'},
         ['@type.qualifier'] = {fg = c.nsaAccentBlue, bg = 'NONE'},
         ['@structure'] = {fg = c.nsaGreenBlue, bg = 'NONE'},

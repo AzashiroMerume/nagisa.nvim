@@ -6,9 +6,9 @@ local function setup(c, opts)
         ['GitGutterDelete'] = {fg = c.nsaRed, bg = 'NONE'},
 
         -- GitSigns
-        ['GitSignsAdd'] = {fg = c.nsaGreen, bg = 'NONE'},
-        ['GitSignsChange'] = {fg = c.nsaYellow, bg = 'NONE'},
-        ['GitSignsDelete'] = {fg = c.nsaRed, bg = 'NONE'},
+        ['GitSignsAdd'] = {fg = c.nsaGreen, bg = 'None'},
+        ['GitSignsChange'] = {fg = c.nsaYellow, bg = 'None'},
+        ['GitSignsDelete'] = {fg = c.nsaRed, bg = 'None'},
         ['GitSignsAddLn'] = {fg = c.nsaBack, bg = c.nsaGreen},
         ['GitSignsChangeLn'] = {fg = c.nsaBack, bg = c.nsaYellow},
         ['GitSignsDeleteLn'] = {fg = c.nsaBack, bg = c.nsaRed},
@@ -308,6 +308,7 @@ local function setup(c, opts)
         ['SymbolsOutlineConnector'] = {fg = c.grayMid2, bg = 'NONE'}
     }
 
+    return highlights
 end
 
 -- link_highlight = function()

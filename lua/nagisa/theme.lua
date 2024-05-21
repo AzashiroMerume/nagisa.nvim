@@ -58,7 +58,7 @@ local function setup(c, opts)
         ['Conditional'] = {fg = c.nsaPink, bg = 'NONE'},
         ['Repeat'] = {fg = c.nsaPink, bg = 'NONE'},
         ['Label'] = {fg = c.nsaPink, bg = 'NONE'},
-        ['Operator'] = {fg = c.nsaOrange, bg = 'NONE'},
+        ['Operator'] = {fg = c.nsaPink, bg = 'NONE'},
         ['Keyword'] = {fg = c.nsaPink, bg = 'NONE'},
         ['Exception'] = {fg = c.nsaPink, bg = 'NONE'},
         ['PreProc'] = {fg = c.nsaPink, bg = 'NONE'},
