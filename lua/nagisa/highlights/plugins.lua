@@ -7,11 +7,11 @@ local function setup(c, opts)
 
         -- GitSigns
         ['GitSignsAdd'] = {fg = c.nsaGreen, bg = 'None'},
-        ['GitSignsChange'] = {fg = c.nsaYellow, bg = 'None'},
+        ['GitSignsChange'] = {fg = c.nsaBlue, bg = 'None'},
         ['GitSignsDelete'] = {fg = c.nsaRed, bg = 'None'},
-        ['GitSignsAddLn'] = {fg = c.nsaBack, bg = c.nsaGreen},
-        ['GitSignsChangeLn'] = {fg = c.nsaBack, bg = c.nsaYellow},
-        ['GitSignsDeleteLn'] = {fg = c.nsaBack, bg = c.nsaRed},
+        ['GitSignsAddLn'] = {fg = 'NONE', bg = c.nsaGreenDark},
+        ['GitSignsChangeLn'] = {fg = 'NONE', bg = c.nsaDarkBlue},
+        ['GitSignsDeleteLn'] = {fg = 'NONE', bg = c.redDarker},
 
         -- NvimTree
         ['NvimTreeRootFolder'] = {fg = c.nsaFront, bg = 'NONE', bold = true},
@@ -263,7 +263,7 @@ local function setup(c, opts)
         ['NeogitDiffContext'] = {fg = c.grayLight, bg = c.blackishBlue},
         ['NeogitDiffContextHighlight'] = {fg = c.grayLight, bg = c.purpleDark},
         ['NeogitDiffDelete'] = {fg = c.redPastel, bg = c.redDark},
-        ['NeogitDiffDeleteHighlight'] = {fg = c.redPastel, bg = c.redLight},
+        ['NeogitDiffDeleteHighlight'] = {fg = c.redPastel, bg = c.redDarker},
         ['NeogitDiffHeader'] = {fg = c.grayLighter, bg = c.nsaBack},
         ['NeogitDiffHeaderHighlight'] = {fg = c.grayLighter, bg = c.nsaBack},
         ['NeogitHunkHeader'] = {fg = c.yellowPastel, bg = c.blackishBlue},
@@ -295,9 +295,9 @@ local function setup(c, opts)
         ['TelescopeResultsBorder'] = {fg = c.grayMid2, bg = 'NONE'},
         ['TelescopePreviewBorder'] = {fg = c.grayMid2, bg = 'NONE'},
         ['TelescopeNormal'] = {fg = c.nsaFront, bg = 'NONE'},
-        ['TelescopeSelection'] = {fg = c.nsaFront, bg = c.blueDark},
-        ['TelescopeMultiSelection'] = {fg = c.nsaFront, bg = c.blueDark},
-        ['TelescopeMatching'] = {fg = c.nsaMediumBlue, bg = 'NONE', bold = true},
+        ['TelescopeSelection'] = {fg = c.nsaPink, bg = 'NONE'},
+        ['TelescopeMultiSelection'] = {fg = c.nsaPink, bg = 'NONE'},
+        ['TelescopeMatching'] = {fg = c.nsaRed, bg = 'NONE', bold = true},
         ['TelescopePromptPrefix'] = {fg = c.nsaFront, bg = 'NONE'},
 
         -- Debugging
