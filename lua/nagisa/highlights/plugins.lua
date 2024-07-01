@@ -126,7 +126,7 @@ local function setup(c, opts)
         ['DiagnosticWarn'] = {fg = c.nsaYellow, bg = 'NONE'},
         ['DiagnosticInfo'] = {fg = c.nsaBlue, bg = 'NONE'},
         ['DiagnosticHint'] = {fg = c.nsaBlue, bg = 'NONE'},
-        ['DiagnosticUnnecessary'] = {fg = c.nsaDisabledBlue, bg = 'NONE'},
+        ['DiagnosticUnnecessary'] = {fg = c.nsaYellow, bg = 'NONE'},
         ['DiagnosticUnderlineError'] = {
             fg = 'NONE',
             bg = 'NONE',
