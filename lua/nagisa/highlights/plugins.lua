@@ -184,15 +184,6 @@ local function setup(c, opts)
 			bold = true,
 		},
 
-		-- HiPhish/rainbow-delimiters.nvim
-		["RainbowDelimiterRed"] = { fg = c.nsaPink, bg = "NONE" },
-		["RainbowDelimiterOrange"] = { fg = c.nsaOrange, bg = "NONE" },
-		["RainbowDelimiterYellow"] = { fg = c.nsaYellowOrange, bg = "NONE" },
-		["RainbowDelimiterGreen"] = { fg = c.nsaGreen, bg = "NONE" },
-		["RainbowDelimiterCyan"] = { fg = c.nsaGreenBlue, bg = "NONE" },
-		["RainbowDelimiterBlue"] = { fg = c.nsaMediumBlue, bg = "NONE" },
-		["RainbowDelimiterViolet"] = { fg = c.nsaViolet, bg = "NONE" },
-
 		-- rcarriga/nvim-dap-ui
 		["DapUIBreakpointsCurrentLine"] = { fg = c.nsaGreenBlue, bold = true },
 		["DapUIBreakpointsDisabledLine"] = { fg = c.nsaDimHighlight },
@@ -295,9 +286,9 @@ local function setup(c, opts)
 		["TelescopeResultsBorder"] = { fg = c.grayMid2, bg = "NONE" },
 		["TelescopePreviewBorder"] = { fg = c.grayMid2, bg = "NONE" },
 		["TelescopeNormal"] = { fg = c.nsaFront, bg = "NONE" },
-		["TelescopeSelection"] = { fg = c.nsaPink, bg = "NONE" },
-		["TelescopeMultiSelection"] = { fg = c.nsaPink, bg = "NONE" },
-		["TelescopeMatching"] = { fg = c.nsaRed, bg = "NONE", bold = true },
+		["TelescopeSelection"] = { fg = c.nsaLightRed, bg = "NONE" },
+		["TelescopeMultiSelection"] = { fg = c.nsaLightRed, bg = "NONE" },
+		["TelescopeMatching"] = { fg = c.nsaPurple, bg = "NONE", bold = true },
 		["TelescopePromptPrefix"] = { fg = c.nsaFront, bg = "NONE" },
 
 		-- Debugging
