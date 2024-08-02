@@ -1,5 +1,23 @@
 local function setup(c, opts)
 	local highlights = {
+		-- Lazy
+		["LazyNormal"] = { fg = c.nsaFront, bg = c.nsaBack },
+		["LazyCommit"] = { fg = c.nsaBlue, bg = c.nsaBack },
+		["LazyCommitType"] = { fg = c.nsaOrange, bg = c.nsaBack },
+		["LazyButton"] = { fg = c.nsaLightBlue, bg = c.nsaBack },
+		["LazyH1"] = { fg = c.nsaPurple, bg = c.nsaBack },
+		["LazyProgressDone"] = { fg = c.nsaGreen, bg = c.nsaBack },
+		["LazyProgressTodo"] = { fg = c.nsaYellow, bg = c.nsaBack },
+		["LazySpecial"] = { fg = c.nsaBlue, bg = c.nsaBack },
+		["LazyReasonCommand"] = { fg = c.nsaBlue, bg = c.nsaBack },
+		["LazyReasonEvent"] = { fg = c.nsaFront, bg = c.nsaBack },
+		["LazyReasonFt"] = { fg = c.nsaFront, bg = c.nsaBack },
+		["LazyReasonImport"] = { fg = c.nsaFront, bg = c.nsaBack },
+		["LazyReasonKeys"] = { fg = c.nsaFront, bg = c.nsaBack },
+		["LazyReasonPlugin"] = { fg = c.nsaFront, bg = c.nsaBack },
+		["LazyReasonRuntime"] = { fg = c.nsaFront, bg = c.nsaBack },
+    ["LazyTaskError"] = { fg = c.nsaRed, bg = c.nsaBack },
+
 		-- GitGutter
 		["GitGutterAdd"] = { fg = c.nsaGreen, bg = "NONE" },
 		["GitGutterChange"] = { fg = c.nsaYellow, bg = "NONE" },
@@ -177,7 +195,7 @@ local function setup(c, opts)
 			bg = c.blackishGray,
 			strikethrough = true,
 		},
-		["CmpItemAbbrMatch"] = { fg = c.nsaMediumBlue, bg = "NONE", bold = true },
+		["CmpItemAbbrMatch"] = { fg = c.nsaPurple, bg = "NONE", bold = true },
 		["CmpItemAbbrMatchFuzzy"] = {
 			fg = c.nsaMediumBlue,
 			bg = "NONE",
@@ -282,17 +300,14 @@ local function setup(c, opts)
 		["LspSagaRenameBorder"] = { fg = c.grayMid2, bg = "NONE" },
 		["LspSagaLspFinderBorder"] = { fg = c.grayMid2, bg = "NONE" },
 
+		["TelescopeNormal"] = { fg = c.nsaFront, bg = "NONE" },
 		["TelescopePromptBorder"] = { fg = c.grayMid2, bg = "NONE" },
 		["TelescopeResultsBorder"] = { fg = c.grayMid2, bg = "NONE" },
 		["TelescopePreviewBorder"] = { fg = c.grayMid2, bg = "NONE" },
-		["TelescopeNormal"] = { fg = c.nsaFront, bg = "NONE" },
 		["TelescopeSelection"] = { fg = c.nsaLightRed, bg = "NONE" },
 		["TelescopeMultiSelection"] = { fg = c.nsaLightRed, bg = "NONE" },
 		["TelescopeMatching"] = { fg = c.nsaPurple, bg = "NONE", bold = true },
 		["TelescopePromptPrefix"] = { fg = c.nsaFront, bg = "NONE" },
-
-		-- Debugging
-		["debugPC"] = { bg = "#4C4C19" },
 
 		-- symbols-outline
 		["FocusedSymbol"] = { fg = "#ffffff", bg = c.nsaUiBlue },
@@ -301,57 +316,5 @@ local function setup(c, opts)
 
 	return highlights
 end
-
--- link_highlight = function()
---     -- Legacy groups for official git.vim and diff.vim syntax
---     hl(0, 'diffAdded', {link = 'DiffAdd'})
---     hl(0, 'diffChanged', {link = 'DiffChange'})
---     hl(0, 'diffRemoved', {link = 'DiffDelete'})
---     -- Legacy groups for treesitter
---     hl(0, '@parameter', {link = '@variable.parameter'})
---     hl(0, '@field', {link = '@variable.member'})
---     hl(0, '@string.regex', {link = '@string.regexp'})
---     hl(0, '@float', {link = '@number.float'})
---     hl(0, '@namespace', {link = '@module'})
---     hl(0, '@method', {link = '@function.method'})
---     hl(0, '@field', {link = '@variable.member'})
---     hl(0, '@conditional', {link = '@keyword.conditional'})
---     hl(0, '@repeat', {link = '@keyword.repeat'})
---     hl(0, '@exception', {link = '@keyword.exception'})
---     hl(0, '@storageclass', {link = '@keyword.storage'})
---     hl(0, '@include', {link = '@keyword.import'})
---     hl(0, '@text.strong', {link = '@markup.strong'})
---     hl(0, '@text.underline', {link = '@markup.underline'})
---     hl(0, '@text.emphasis', {link = '@markup.italic'})
---     hl(0, '@text.strike', {link = '@markup.strikethrough'})
---     hl(0, '@text.title', {link = '@markup.heading'})
---     hl(0, '@text.uri', {link = '@markup.link.url'})
---     hl(0, '@text.literal', {link = '@markup.raw'})
---     hl(0, '@text.note', {link = '@comment.note'})
---     hl(0, '@text.warning', {link = '@comment.warning'})
---     hl(0, '@text.danger', {link = '@comment.error'})
---     hl(0, '@text.diff.add', {link = '@diff.plus'})
---     hl(0, '@text.diff.delete', {link = '@diff.minus'})
---     -- Nvim compe
---     hl(0, 'CompeDocumentation', {link = 'Pmenu'})
---     hl(0, 'CompeDocumentationBorder', {link = 'Pmenu'})
---     hl(0, 'CmpItemKind', {link = 'Pmenu'})
---     hl(0, 'CmpItemKindClass', {link = 'CmpItemKindConstructor'})
---     hl(0, 'CmpItemKindModule', {link = 'CmpItemKindKeyword'})
---     hl(0, 'CmpItemKindOperator', {link = '@operator'})
---     hl(0, 'CmpItemKindReference', {link = '@variable.parameter.reference'})
---     hl(0, 'CmpItemKindValue', {link = '@variable.member'})
---     hl(0, 'CmpItemKindField', {link = '@variable.member'})
---     hl(0, 'CmpItemKindEnum', {link = '@variable.member'})
---     hl(0, 'CmpItemKindSnippet', {link = '@text'})
---     hl(0, 'CmpItemKindColor', {link = 'cssColor'})
---     hl(0, 'CmpItemKindFile', {link = '@text.uri'})
---     hl(0, 'CmpItemKindFolder', {link = '@text.uri'})
---     hl(0, 'CmpItemKindEvent', {link = '@constant'})
---     hl(0, 'CmpItemKindEnumMember', {link = '@variable.member'})
---     hl(0, 'CmpItemKindConstant', {link = '@constant'})
---     hl(0, 'CmpItemKindStruct', {link = '@structure'})
---     hl(0, 'CmpItemKindTypeParameter', {link = '@variable.parameter'})
--- end
 
 return { setup = setup }
