@@ -31,6 +31,14 @@ colorscheme EndOfTheWorld
 vim.cmd.colorscheme("EndOfTheWorld")
 ```
 
+### Compile
+```vim
+" 1. Modify your config
+" 2. Restart nvim
+" 3. Run this command:
+:NagisaCompile
+```
+
 ## Acknowledgements
 - [Kanagawa](https://github.com/rebelot/kanagawa.nvim) - The project structure was inspired by this theme. Since this theme is under lazy development, it is suggested to try out.
 - The theme name was inspired by a character from the anime [Clannad](https://myanimelist.net/anime/2167/Clannad) (weeb detected?).
