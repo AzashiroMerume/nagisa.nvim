@@ -32,5 +32,5 @@ vim.cmd.colorscheme("EndOfTheWorld")
 ```
 
 ## Acknowledgements
-- [Tokyonight](https://github.com/rebelot/kanagawa.nvim) - The project structure was inspired by this theme. Since this theme is under lazy development, it is suggested to try out.
+- [Kanagawa](https://github.com/rebelot/kanagawa.nvim) - The project structure was inspired by this theme. Since this theme is under lazy development, it is suggested to try out.
 - The theme name was inspired by a character from the anime [Clannad](https://myanimelist.net/anime/2167/Clannad) (weeb detected?).
