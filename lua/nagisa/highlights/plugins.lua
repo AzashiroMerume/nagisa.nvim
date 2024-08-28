@@ -71,7 +71,7 @@ local function setup(c, opts)
 		["NvimTreeGitNew"] = { fg = c.greenPastel, bg = "NONE" },
 
 		-- Harpoon
-		["HarpoonCurrentFile"] = { fg = "NONE", bg = c.red },
+		["HarpoonCurrentFile"] = { fg = "NONE", bg = c.front },
 
 		-- BufferLine
 		["BufferLineIndicatorSelected"] = { fg = c.blackishBlue, bg = "NONE" },
