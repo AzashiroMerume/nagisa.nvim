@@ -12,13 +12,13 @@ local function setup(c, opts)
 		["@lsp.typemod.variable.constant"] = { link = "@constant" },
 		["@lsp.type.member"] = { link = "@function" },
 		["@lsp.type.keyword"] = { link = "@keyword" },
-		["@lsp.typemod.keyword.controlFlow"] = { fg = c.nsaPink, bg = "NONE" },
-		["@lsp.type.comment.c"] = { fg = c.nsaDimHighlight, bg = "NONE" },
-		["@lsp.type.comment.cpp"] = { fg = c.nsaDimHighlight, bg = "NONE" },
+		["@lsp.typemod.keyword.controlFlow"] = { fg = c.pink, bg = "NONE" },
+		["@lsp.type.comment.c"] = { fg = c.dimHighlight, bg = "NONE" },
+		["@lsp.type.comment.cpp"] = { fg = c.dimHighlight, bg = "NONE" },
 		["@event"] = { link = "Identifier" },
 		["@interface"] = { link = "Identifier" },
 		["@modifier"] = { link = "Identifier" },
-		["@regexp"] = { fg = c.nsaRed, bg = "NONE" },
+		["@regexp"] = { fg = c.red, bg = "NONE" },
 		["@decorator"] = { link = "Identifier" },
 	}
 
