@@ -90,7 +90,8 @@ local function setup(c, opts)
 		["SpellRare"] = { fg = "NONE", undercurl = true, sp = c.purple },
 		["SpellLocal"] = { fg = "NONE", undercurl = true, sp = c.blue },
 		["Whitespace"] = { fg = c.grayMid2 },
-		["NormalFloat"] = { bg = c.blackishGray },
+		["NormalFloat"] = { bg = c.back },
+		["FloatBorder"] = { fg = c.grayMid2 },
 		["WinBar"] = { fg = c.front, bg = c.back, bold = true },
 		["WinBarNc"] = { fg = c.front, bg = c.back },
 	}
