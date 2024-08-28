@@ -35,7 +35,7 @@ local function setup(c, opts)
 		["NvimTreeRootFolder"] = { fg = c.front, bg = "NONE", bold = true },
 		["NvimTreeGitDirty"] = { fg = c.yellow, bg = "NONE" },
 		["NvimTreeGitNew"] = { fg = c.green, bg = "NONE" },
-		["NvimTreeImageFile"] = { fg = c.nsaViolet, bg = "NONE" },
+		["NvimTreeImageFile"] = { fg = c.purple, bg = "NONE" },
 		["NvimTreeEmptyFolderName"] = { fg = c.gray, bg = "NONE" },
 		["NvimTreeFolderName"] = { fg = c.front, bg = "NONE" },
 		["NvimTreeSpecialFile"] = {
@@ -247,7 +247,7 @@ local function setup(c, opts)
 		["DashboardDesc"] = { fg = c.yellowOrange, bg = "NONE" },
 		["DashboardIcon"] = { fg = c.yellowOrange, bg = "NONE" },
 		["DashboardShortCut"] = { fg = c.pink, bg = "NONE" },
-		["DashboardKey"] = { fg = c.nsaWhite, bg = "NONE" },
+		["DashboardKey"] = { fg = c.front, bg = "NONE" },
 		["DashboardFooter"] = { fg = c.blue, bg = "NONE", italic = true },
 
 		-- Illuminate
