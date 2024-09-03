@@ -21,7 +21,12 @@ use("azashiromerume/nagisa.nvim")
 ### lazy.nvim
 
 ```lua
-{ "azashiromerume/nagisa.nvim" }
+{
+  "azashiromerume/nagisa.nvim",
+  lazy = false,
+  priority = 1000,
+  opts = {},
+}
 ```
 ### Colorscheme
 ```vim
