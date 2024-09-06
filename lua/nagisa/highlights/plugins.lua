@@ -143,7 +143,7 @@ local function setup(c, opts)
 
 		-- LSP
 		["DiagnosticOk"] = { fg = c.greenBlue, bg = "NONE" },
-		["DiagnosticError"] = { fg = c.front, bg = c.errorRed },
+		["DiagnosticError"] = { fg = c.red, bg = "NONE" },
 		["DiagnosticWarn"] = { fg = c.yellow, bg = "NONE" },
 		["DiagnosticInfo"] = { fg = c.blue, bg = "NONE" },
 		["DiagnosticHint"] = { fg = c.blue, bg = "NONE" },
