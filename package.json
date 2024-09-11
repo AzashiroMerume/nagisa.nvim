@@ -1,0 +1,20 @@
+{
+  "name": "nagisa.nvim",
+  "version": "1.0.0",
+  "description": "nagisa.nvim 🌠",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky && husky install"
+  },
+  "lint-staged": {
+    "*.lua": "stylua --config-path stylua.toml"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@johnnymorganz/stylua": "^0.20.0",
+    "husky": "^9.1.5"
+  }
+}
