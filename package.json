@@ -16,5 +16,8 @@
   "devDependencies": {
     "@johnnymorganz/stylua": "^0.20.0",
     "husky": "^9.1.5"
+  },
+  "dependencies": {
+    "lint-staged": "^15.2.10"
   }
 }
