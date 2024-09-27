@@ -20,12 +20,12 @@ local function setup(c, opts)
 
         -- GitGutter
         ["GitGutterAdd"] = { fg = c.green, bg = "NONE" },
-        ["GitGutterChange"] = { fg = c.yellow, bg = "NONE" },
+        ["GitGutterChange"] = { fg = c.purple, bg = "NONE" },
         ["GitGutterDelete"] = { fg = c.red, bg = "NONE" },
 
         -- GitSigns
         ["GitSignsAdd"] = { fg = c.green, bg = "NONE" },
-        ["GitSignsChange"] = { fg = c.blue, bg = "NONE" },
+        ["GitSignsChange"] = { fg = c.purple, bg = "NONE" },
         ["GitSignsDelete"] = { fg = c.red, bg = "NONE" },
         ["GitSignsAddLn"] = { fg = "NONE", bg = c.greenDark },
         ["GitSignsChangeLn"] = { fg = "NONE", bg = c.darkBlue },
@@ -140,6 +140,10 @@ local function setup(c, opts)
         ["NeotestTarget"] = { fg = c.lightRed },
         ["NeotestWatching"] = { fg = c.darkYellow },
         ["NeotestWinSelect"] = { fg = c.blue, bold = true },
+
+        -- Eyeliner
+        ["EyelinerPrimary"] = { fg = c.red, bold = true, underline = true },
+        ["EyelinerSecondary"] = { fg = c.grayLighter, underline = true },
 
         -- LSP
         ["DiagnosticOk"] = { fg = c.greenBlue, bg = "NONE" },
