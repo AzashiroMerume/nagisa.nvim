@@ -70,6 +70,10 @@ local function setup(c, opts)
         ["NvimTreeGitDirty"] = { fg = c.yellowPastel, bg = "NONE" },
         ["NvimTreeGitNew"] = { fg = c.greenPastel, bg = "NONE" },
 
+        -- Neotree
+        ["NeoTreeModified"] = { fg = c.purple, bg = "NONE" },
+        ["NeoTreeGitUnstaged"] = { fg = c.purple, bg = "NONE" },
+
         -- Harpoon
         ["HarpoonCurrentFile"] = { fg = "NONE", bg = c.front },
 
