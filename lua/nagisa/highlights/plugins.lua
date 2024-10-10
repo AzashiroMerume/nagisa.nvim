@@ -146,7 +146,7 @@ local function setup(c, opts)
         ["NeotestWinSelect"] = { fg = c.blue, bold = true },
 
         -- Eyeliner
-        ["EyelinerPrimary"] = { fg = c.red, bold = true, underline = true },
+        ["EyelinerPrimary"] = { fg = c.lightRed, bold = true, underline = true },
         ["EyelinerSecondary"] = { fg = c.grayLighter, underline = true },
 
         -- LSP
