@@ -1,5 +1,6 @@
--- LSP semantic tokens
-local function setup(c, opts)
+local function setup(theme, opts)
+    opts = opts or require("nagisa.config").opts
+
     local highlights = {
         ["@type.builtin"] = { link = "@type" },
         ["@lsp.typemod.type.defaultLibrary"] = { link = "@type.builtin" },
@@ -12,13 +13,22 @@ local function setup(c, opts)
         ["@lsp.typemod.variable.constant"] = { link = "@constant" },
         ["@lsp.type.member"] = { link = "@function" },
         ["@lsp.type.keyword"] = { link = "@keyword" },
-        ["@lsp.typemod.keyword.controlFlow"] = { fg = c.pink, bg = "NONE" },
-        ["@lsp.type.comment.c"] = { fg = c.dimHighlight, bg = "NONE" },
-        ["@lsp.type.comment.cpp"] = { fg = c.dimHighlight, bg = "NONE" },
+        ["@lsp.typemod.keyword.controlFlow"] = {
+            fg = theme.pink,
+            bg = theme.none,
+        },
+        ["@lsp.type.comment.c"] = {
+            fg = theme.dimHighlight,
+            bg = theme.none,
+        },
+        ["@lsp.type.comment.cpp"] = {
+            fg = theme.dimHighlight,
+            bg = theme.none,
+        },
         ["@event"] = { link = "Identifier" },
         ["@interface"] = { link = "Identifier" },
         ["@modifier"] = { link = "Identifier" },
-        ["@regexp"] = { fg = c.red, bg = "NONE" },
+        ["@regexp"] = { fg = theme.red, bg = theme.none },
         ["@decorator"] = { link = "Identifier" },
     }
 
