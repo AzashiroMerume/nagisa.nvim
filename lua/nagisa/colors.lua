@@ -29,8 +29,7 @@ local colors = {
     purple = "#D95ADB",
 
     -- Reds
-    redDark = "#8c2323",
-    redDarker = "#6F1313",
+    redDark = "#6F1313",
     redPastel = "#c74e39",
     lightRed = "#FF1424",
     red = "#FF073A",

@@ -15,7 +15,7 @@ M.setup = function(theme, opts)
         CursorIM = { link = "Cursor" },
         CursorColumn = { link = "CursorLine" },
         CursorLine = { bg = theme.ui.col },
-        Directory = { fg = theme.syn.func },
+        Directory = { fg = theme.ui.dir },
         VertSplit = { fg = theme.ui.bg_dim, bg = theme.ui.bg },
 
         -- Diff highlight groups
@@ -32,7 +32,7 @@ M.setup = function(theme, opts)
 
         -- Search and selection highlights
         Search = { fg = "NONE", bg = theme.ui.search },
-        Visual = { fg = theme.ui.selection },
+        Visual = { fg = "NONE", bg = theme.ui.bg_dim },
         IncSearch = { fg = "NONE", bg = theme.ui.search },
 
         -- Popup menu highlights

@@ -11,28 +11,28 @@ M.setup = function(theme, opts)
         ["LazyH1"] = { fg = theme.syn.operator, bg = theme.ui.bg },
         ["LazyProgressDone"] = { fg = theme.syn.string, bg = theme.ui.bg },
         ["LazyProgressTodo"] = { fg = theme.syn.constant, bg = theme.ui.bg },
-        ["LazySpethemeial"] = { fg = theme.blue, bg = theme.bathemek },
-        ["LazyReasonCommand"] = { fg = theme.blue, bg = theme.bathemek },
-        ["LazyReasonEvent"] = { fg = theme.front, bg = theme.bathemek },
-        ["LazyReasonFt"] = { fg = theme.front, bg = theme.bathemek },
-        ["LazyReasonImport"] = { fg = theme.front, bg = theme.bathemek },
-        ["LazyReasonKeys"] = { fg = theme.front, bg = theme.bathemek },
-        ["LazyReasonPlugin"] = { fg = theme.front, bg = theme.bathemek },
-        ["LazyReasonRuntime"] = { fg = theme.front, bg = theme.bathemek },
-        ["LazyTaskError"] = { fg = theme.red, bg = theme.bathemek },
+        ["LazySpethemeial"] = { fg = theme.diag.info, bg = theme.ui.bg },
+        ["LazyReasonCommand"] = { fg = theme.diag.info, bg = theme.ui.bg },
+        ["LazyReasonEvent"] = { fg = theme.ui.fg, bg = theme.ui.bg },
+        ["LazyReasonFt"] = { fg = theme.ui.fg, bg = theme.ui.bg },
+        ["LazyReasonImport"] = { fg = theme.ui.fg, bg = theme.ui.bg },
+        ["LazyReasonKeys"] = { fg = theme.ui.fg, bg = theme.ui.bg },
+        ["LazyReasonPlugin"] = { fg = theme.ui.fg, bg = theme.ui.bg },
+        ["LazyReasonRuntime"] = { fg = theme.ui.fg, bg = theme.ui.bg },
+        ["LazyTaskError"] = { fg = theme.diag.error, bg = theme.ui.bg },
 
         -- GitGutter
         ["GitGutterAdd"] = { fg = theme.vcs.added, bg = "NONE" },
         ["GitGutterChange"] = { fg = theme.vcs.changed, bg = "NONE" },
-        ["GitGutterDelete"] = { fg = theme.vcs.removed, bg = "NONE" },
+        ["GitGutterDelete"] = { fg = theme.vcs.deleted, bg = "NONE" },
 
         -- GitSigns
-        ["GitSignsAdd"] = { fg = theme.diff.add, bg = "NONE" },
-        ["GitSignsChange"] = { fg = theme.diff.change, bg = "NONE" },
-        ["GitSignsDelete"] = { fg = theme.diff.delete, bg = "NONE" },
-        ["GitSignsAddLn"] = { fg = "NONE", bg = theme.greenDark },
-        ["GitSignsChangeLn"] = { fg = "NONE", bg = theme.darkBlue },
-        ["GitSignsDeleteLn"] = { fg = "NONE", bg = theme.redDarker },
+        ["GitSignsAdd"] = { fg = theme.vcs.added, bg = "NONE" },
+        ["GitSignsChange"] = { fg = theme.vcs.changed, bg = "NONE" },
+        ["GitSignsDelete"] = { fg = theme.vcs.deleted, bg = "NONE" },
+        ["GitSignsAddLn"] = { fg = "NONE", bg = theme.vcs.addedLn },
+        ["GitSignsChangeLn"] = { fg = "NONE", bg = theme.vcs.changedLn },
+        ["GitSignsDeleteLn"] = { fg = "NONE", bg = theme.vcs.deletedLn },
 
         -- NvimTree
         ["NvimTreeRootFolder"] = { fg = theme.ui.fg, bg = "NONE", bold = true },
@@ -50,36 +50,32 @@ M.setup = function(theme, opts)
         },
         ["NvimTreeCursorLine"] = {
             fg = "NONE",
-            bg = opts.disable_nvimtree_bg and theme.grayVeryDark or theme.purpleDark,
+            bg = opts.disable_nvimtree_bg and theme.ui.bg or theme.ui.bg_dim,
         },
         ["NvimTreeVertSplit"] = {
-            fg = opts.disable_nvimtree_bg and theme.grayDarkish or theme.bathemek,
-            bg = theme.bathemek,
+            fg = opts.disable_nvimtree_bg and theme.ui.bg_dim or theme.ui.bg,
+            bg = theme.ui.bg,
         },
         ["NvimTreeEndOfBuffer"] = {
-            fg = opts.disable_nvimtree_bg and theme.grayVeryDark or theme.blathemekishBlue,
+            fg = opts.disable_nvimtree_bg and theme.ui.col or theme.ui.bg,
         },
         ["NvimTreeOpenedFolderName"] = {
             fg = "NONE",
-            bg = opts.disable_nvimtree_bg and theme.grayVeryDark or theme.blathemekishBlue,
+            bg = opts.disable_nvimtree_bg and theme.ui.col or theme.ui.bg,
         },
-        ["NvimTreeGitRenamed"] = { fg = theme.greenPastel2, bg = "NONE" },
-        ["NvimTreeGitIgnored"] = { fg = theme.grayDark2, bg = "NONE" },
-        ["NvimTreeGitDeleted"] = { fg = theme.redPastel, bg = "NONE" },
-        ["NvimTreeGitStaged"] = { fg = theme.yellowPastel, bg = "NONE" },
-        ["NvimTreeGitMerge"] = { fg = theme.greenPastel2, bg = "NONE" },
-        ["NvimTreeGitDirty"] = { fg = theme.yellowPastel, bg = "NONE" },
-        ["NvimTreeGitNew"] = { fg = theme.greenPastel, bg = "NONE" },
-
-        -- Neotree
-        ["NeoTreeModified"] = { fg = theme.purple, bg = "NONE" },
-        ["NeoTreeGitUnstaged"] = { fg = theme.purple, bg = "NONE" },
+        ["NvimTreeGitRenamed"] = { fg = theme.diff.change, bg = "NONE" },
+        ["NvimTreeGitIgnored"] = { fg = theme.syn.comment, bg = "NONE" },
+        ["NvimTreeGitDeleted"] = { fg = theme.diff.delete, bg = "NONE" },
+        ["NvimTreeGitStaged"] = { fg = theme.diff.add, bg = "NONE" },
+        ["NvimTreeGitMerge"] = { fg = theme.diff.add, bg = "NONE" },
+        ["NvimTreeGitDirty"] = { fg = theme.diff.add, bg = "NONE" },
+        ["NvimTreeGitNew"] = { fg = theme.diff.add, bg = "NONE" },
 
         -- Harpoon
-        ["HarpoonCurrentFile"] = { fg = "NONE", bg = theme.front },
+        ["HarpoonCurrentFile"] = { fg = "NONE", bg = theme.ui.fg },
 
         -- BufferLine
-        ["BufferLineIndithemeatorSelethemeted"] = { fg = theme.blathemekishBlue, bg = "NONE" },
+        ["BufferLineIndicatorSelethemeted"] = { fg = theme.blathemekishBlue, bg = "NONE" },
         ["BufferLineFill"] = { fg = "NONE", bg = theme.blathemekishBlue },
         ["BufferCurrent"] = { fg = theme.front, bg = theme.purpleDark },
         ["BufferCurrentIndex"] = { fg = theme.front, bg = theme.purpleDark },
@@ -91,60 +87,15 @@ M.setup = function(theme, opts)
         ["BufferVisibleMod"] = { fg = theme.yellowOrange, bg = theme.purpleDark },
         ["BufferVisibleSign"] = { fg = theme.gray, bg = theme.purpleDark },
         ["BufferVisibleTarget"] = { fg = theme.red, bg = theme.purpleDark },
-        ["BufferInathemetive"] = { fg = theme.gray, bg = theme.grayDark },
-        ["BufferInathemetiveIndex"] = { fg = theme.gray, bg = theme.grayDark },
-        ["BufferInathemetiveMod"] = { fg = theme.yellowOrange, bg = theme.grayDark },
-        ["BufferInathemetiveSign"] = { fg = theme.gray, bg = theme.grayDark },
-        ["BufferInathemetiveTarget"] = { fg = theme.red, bg = theme.grayDark },
+        ["BufferInactive"] = { fg = theme.gray, bg = theme.grayDark },
+        ["BufferInactiveIndex"] = { fg = theme.gray, bg = theme.grayDark },
+        ["BufferInactiveMod"] = { fg = theme.yellowOrange, bg = theme.grayDark },
+        ["BufferInactiveSign"] = { fg = theme.gray, bg = theme.grayDark },
+        ["BufferInactiveTarget"] = { fg = theme.red, bg = theme.grayDark },
         ["BufferTabpage"] = { fg = theme.front, bg = theme.grayDark },
         ["BufferTabpageFill"] = { fg = theme.front, bg = theme.grayDark },
         ["BufferTabpages"] = { fg = theme.front, bg = theme.grayDark },
         ["BufferTabpagesFill"] = { fg = theme.front, bg = theme.grayDark },
-
-        -- IndentBlankline
-        ["IndentBlanklineContextChar"] = {
-            fg = theme.grayMid3,
-            bg = "NONE",
-            nocombine = true,
-        },
-        ["IndentBlanklineContextStart"] = {
-            sp = theme.grayMid3,
-            bg = "NONE",
-            nocombine = true,
-            underline = true,
-        },
-        ["IndentBlanklineChar"] = {
-            fg = theme.grayDark3,
-            bg = "NONE",
-            nocombine = true,
-        },
-        ["IndentBlanklineSpathemeeChar"] = {
-            fg = theme.grayDark3,
-            bg = "NONE",
-            nocombine = true,
-        },
-        ["IndentBlanklineSpathemeeCharBlankline"] = {
-            fg = theme.grayDark3,
-            bg = "NONE",
-            nocombine = true,
-        },
-
-        -- Neotest
-        ["NeotestAdapterName"] = { fg = theme.front, bold = true },
-        ["NeotestDir"] = { fg = theme.blue },
-        ["NeotestExpandMarker"] = { fg = theme.dimHighlight },
-        ["NeotestFailed"] = { fg = theme.red },
-        ["NeotestFile"] = { fg = theme.blue },
-        ["NeotestFothemeused"] = { bold = true },
-        ["NeotestIndent"] = { fg = theme.dimHighlight },
-        ["NeotestMarked"] = { fg = theme.yellowOrange, bold = true },
-        ["NeotestNamespathemee"] = { fg = theme.pink },
-        ["NeotestPassed"] = { fg = theme.greenBlue },
-        ["NeotestRunning"] = { fg = theme.darkYellow },
-        ["NeotestSkipped"] = { fg = theme.blue },
-        ["NeotestTarget"] = { fg = theme.lightRed },
-        ["NeotestWatthemehing"] = { fg = theme.darkYellow },
-        ["NeotestWinSelethemet"] = { fg = theme.blue, bold = true },
 
         -- Eyeliner
         ["EyelinerPrimary"] = { fg = theme.lightRed, bold = true, underline = true },
@@ -181,9 +132,9 @@ M.setup = function(theme, opts)
             undercurl = true,
             sp = theme.blue,
         },
-        ["LspReferenthemeeText"] = { fg = "NONE", bg = theme.grayDarker },
-        ["LspReferenthemeeRead"] = { fg = "NONE", bg = theme.grayDarker },
-        ["LspReferenthemeeWrite"] = { fg = "NONE", bg = theme.grayDarker },
+        ["LspReferenceText"] = { fg = "NONE", bg = theme.grayDarker },
+        ["LspReferenceRead"] = { fg = "NONE", bg = theme.grayDarker },
+        ["LspReferenceWrite"] = { fg = "NONE", bg = theme.grayDarker },
 
         -- themeotheme.nvim
         ["CothemeHighlightText"] = { fg = "NONE", bg = theme.grayDarker },
@@ -258,25 +209,6 @@ M.setup = function(theme, opts)
         ["DashboardShortCut"] = { fg = theme.pink, bg = "NONE" },
         ["DashboardKey"] = { fg = theme.front, bg = "NONE" },
         ["DashboardFooter"] = { fg = theme.blue, bg = "NONE", italic = true },
-
-        -- Illuminate
-        ["illuminatedWord"] = { bg = theme.grayDarker },
-        ["illuminatedCurWord"] = { bg = theme.grayDarker },
-        ["IlluminatedWordText"] = { bg = theme.grayDarker },
-        ["IlluminatedWordRead"] = { bg = theme.grayDarker },
-        ["IlluminatedWordWrite"] = { bg = theme.grayDarker },
-
-        -- mini.statusline
-        ["MiniStatuslineModeNormal"] = { bg = theme.blathemekishBlue, fg = theme.front },
-        ["MiniStatuslineModeInsert"] = { bg = theme.blathemekishBlue, fg = theme.front },
-        ["MiniStatuslineModeVisual"] = { bg = theme.blathemekishBlue, fg = theme.front },
-        ["MiniStatuslineModeReplathemee"] = { bg = theme.blathemekishBlue, fg = theme.front },
-        ["MiniStatuslineModeCommand"] = { bg = theme.blathemekishBlue, fg = theme.front },
-        ["MiniStatuslineModeOther"] = { bg = theme.blathemekishBlue, fg = theme.front },
-        ["MiniStatuslineDevinfo"] = { bg = theme.blathemekishBlue, fg = theme.front },
-        ["MiniStatuslineFilename"] = { bg = theme.purpleDark, fg = theme.front },
-        ["MiniStatuslineFileinfo"] = { bg = theme.grayMid, fg = theme.front },
-        ["MiniStatuslineInathemetive"] = { bg = theme.blathemekishBlue, fg = theme.front },
 
         -- NeogitOrg/neogit
         ["NeogitDiffAdd"] = { fg = theme.green, bg = "NONE" },

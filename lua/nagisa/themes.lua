@@ -17,6 +17,7 @@
 ---@field selection string
 ---@field pmenu Pmenu
 ---@field statusline string
+---@field dir string
 
 ---@class Pmenu
 ---@field main string
@@ -37,8 +38,11 @@
 
 ---@class VCSElements
 ---@field added string
----@field removed string
 ---@field changed string
+---@field deleted string
+---@field addedLn string
+---@field changedLn string
+---@field deletedLn string
 
 ---@class DiffElements
 ---@field add string
@@ -69,13 +73,12 @@ local function setup(colors)
                     search = colors.blueGray,
                     cursor = colors.grayMidDark,
                     selection = colors.lightRed,
-
                     pmenu = {
                         main = colors.grayLight,
                         sel = colors.red,
                     },
-
                     statusline = colors.purpleDark,
+                    dir = colors.accentBlue,
                 },
                 syn = {
                     string = colors.green,
@@ -92,12 +95,15 @@ local function setup(colors)
                 },
                 vcs = {
                     added = colors.green,
-                    removed = colors.redDark,
-                    changed = colors.yellowOrange,
+                    changed = colors.purple,
+                    deleted = colors.redDark,
+                    addedLn = colors.greenDark,
+                    changedLn = colors.purpleDark,
+                    deletedLn = colors.redDark,
                 },
                 diff = {
                     add = colors.greenPastel2,
-                    delete = colors.redDarker,
+                    delete = colors.redDark,
                     change = colors.blueGrayDark,
                     text = colors.blueDark,
                 },
