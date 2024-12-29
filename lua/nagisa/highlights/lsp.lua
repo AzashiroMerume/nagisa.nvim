@@ -1,7 +1,10 @@
-local function setup(theme, opts)
+local M = {}
+
+---@param theme Theme
+M.setup = function(theme, opts)
     opts = opts or require("nagisa.config").opts
 
-    local highlights = {
+    return {
         ["@type.builtin"] = { link = "@type" },
         ["@lsp.typemod.type.defaultLibrary"] = { link = "@type.builtin" },
         ["@lsp.type.type"] = { link = "@type" },
@@ -14,25 +17,23 @@ local function setup(theme, opts)
         ["@lsp.type.member"] = { link = "@function" },
         ["@lsp.type.keyword"] = { link = "@keyword" },
         ["@lsp.typemod.keyword.controlFlow"] = {
-            fg = theme.pink,
-            bg = theme.none,
+            fg = theme.syn.keyword,
+            bg = "NONE",
         },
         ["@lsp.type.comment.c"] = {
-            fg = theme.dimHighlight,
-            bg = theme.none,
+            fg = theme.syn.comment,
+            bg = "NONE",
         },
         ["@lsp.type.comment.cpp"] = {
-            fg = theme.dimHighlight,
-            bg = theme.none,
+            fg = theme.syn.comment,
+            bg = "NONE",
         },
         ["@event"] = { link = "Identifier" },
         ["@interface"] = { link = "Identifier" },
         ["@modifier"] = { link = "Identifier" },
-        ["@regexp"] = { fg = theme.red, bg = theme.none },
+        ["@regexp"] = { fg = theme.syn.constant, bg = "NONE" },
         ["@decorator"] = { link = "Identifier" },
     }
-
-    return highlights
 end
 
-return { setup = setup }
+return M

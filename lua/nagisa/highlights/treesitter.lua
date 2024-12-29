@@ -39,7 +39,7 @@ M.setup = function(theme, opts)
         ["@variable.parameter"] = { fg = theme.ui.fg, bg = "NONE" },
         ["@variable.parameter.reference"] = { fg = theme.ui.fg, bg = "NONE" },
         ["@variable.member"] = { fg = theme.ui.fg, bg = "NONE" },
-        ["@property"] = { fg = theme.syn.variable, bg = "NONE" },
+        ["@property"] = { fg = theme.ui.fg, bg = "NONE" },
         ["@constructor"] = { fg = theme.syn.special1, bg = "NONE" },
         ["@label"] = { fg = theme.syn.variable, bg = "NONE" },
         ["@keyword"] = { fg = theme.syn.keyword, bg = "NONE" },

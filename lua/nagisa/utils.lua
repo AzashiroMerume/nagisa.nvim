@@ -2,6 +2,7 @@ local M = {}
 local PATH_SEP = vim.loop.os_uname().version:match("Windows") and "\\" or "/"
 
 ---@param theme_name string
+---@return string
 local function get_compiled_path(theme_name)
     return table.concat({
         vim.fn.stdpath("state"),
@@ -10,6 +11,7 @@ local function get_compiled_path(theme_name)
     }, PATH_SEP)
 end
 
+---@param path string
 local function ensure_directory_exists(path)
     local dir = path:match("(.*[/\\])")
     if not vim.uv.fs_stat(dir) then
@@ -17,6 +19,8 @@ local function ensure_directory_exists(path)
     end
 end
 
+---@param highlights table<string, table>
+---@return string
 local function serialize_highlights(highlights)
     local lines = {}
     local inspect = vim.inspect
@@ -29,6 +33,8 @@ local function serialize_highlights(highlights)
     return table.concat(lines, "\n")
 end
 
+---@param path string
+---@param highlights table<string, table>
 local function save_compiled_highlights(path, highlights)
     ensure_directory_exists(path)
     local file = io.open(path, "w")
@@ -43,6 +49,7 @@ end
 
 ---@param theme_name string
 ---@param opts table
+---@param colors Colors
 function M.compile(theme_name, opts, colors)
     local themes = require("nagisa.themes")
     local theme_data = themes.setup(colors)[theme_name]
@@ -68,14 +75,6 @@ function M.load_compiled(theme_name)
         return true
     end
     return false
-end
-
----@param theme_name string
----@param opts table
-function M.prepare_theme(theme_name, opts)
-    if not M.load_compiled(theme_name) then
-        M.compile(theme_name, opts)
-    end
 end
 
 return M

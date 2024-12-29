@@ -2,6 +2,8 @@ local M = {}
 
 ---@param theme Theme
 M.setup = function(theme, opts)
+    opts = opts or require("nagisa.config").opts
+
     return {
         -- Lazy
         ["LazyNormal"] = { fg = theme.ui.fg, bg = theme.ui.bg },
