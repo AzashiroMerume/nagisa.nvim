@@ -1,6 +1,7 @@
 local M = {}
 
 ---@param theme Theme
+---@return table highlights
 M.setup = function(theme, opts)
     local highlights = {
         ["@error"] = { fg = theme.diag.error, bg = "NONE" },
