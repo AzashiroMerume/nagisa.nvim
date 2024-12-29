@@ -1,4 +1,3 @@
-local config = require("nagisa.config")
 local nagisa = {}
 local colors = {}
 

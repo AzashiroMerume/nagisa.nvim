@@ -54,7 +54,6 @@
 ---@field error string
 ---@field warning string
 ---@field info string
----@field hint string
 
 ---@param colors Colors
 ---@return Theme
@@ -111,7 +110,6 @@ local function setup(colors)
                     error = colors.error,
                     warning = colors.yellow,
                     info = colors.blue,
-                    hint = colors.greenBlue,
                 },
             }
         end,
