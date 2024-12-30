@@ -14,7 +14,7 @@ M.setup = function(theme, opts)
         ["LazyH1"] = { fg = theme.syn.operator, bg = theme.ui.bg },
         ["LazyProgressDone"] = { fg = theme.syn.string, bg = theme.ui.bg },
         ["LazyProgressTodo"] = { fg = theme.syn.constant, bg = theme.ui.bg },
-        ["LazySpethemeial"] = { fg = theme.diag.info, bg = theme.ui.bg },
+        ["LazySpecial"] = { fg = theme.diag.info, bg = theme.ui.bg },
         ["LazyReasonCommand"] = { fg = theme.diag.info, bg = theme.ui.bg },
         ["LazyReasonEvent"] = { fg = theme.ui.fg, bg = theme.ui.bg },
         ["LazyReasonFt"] = { fg = theme.ui.fg, bg = theme.ui.bg },
@@ -73,7 +73,7 @@ M.setup = function(theme, opts)
         ["DiagnosticWarn"] = { fg = theme.diag.warning, bg = "NONE" },
         ["DiagnosticInfo"] = { fg = theme.diag.info, bg = "NONE" },
         ["DiagnosticHint"] = { fg = theme.diag.info, bg = "NONE" },
-        ["DiagnosticUnnecessary"] = { fg = theme.diag.info, bg = "NONE" },
+        ["DiagnosticUnnecessary"] = { fg = theme.diag.warning, bg = "NONE" },
         ["DiagnosticUnderlineError"] = {
             fg = "NONE",
             bg = "NONE",
