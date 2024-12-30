@@ -29,7 +29,7 @@ M.setup = function(theme, opts)
         DiagnosticError = { fg = theme.diag.error },
         DiagnosticWarn = { fg = theme.diag.warning },
         DiagnosticInfo = { fg = theme.diag.info },
-        DiagnosticHint = { fg = theme.diag.hint },
+        DiagnosticHint = { fg = theme.diag.info },
 
         -- Search and selection highlights
         Search = { fg = "NONE", bg = theme.ui.search },
