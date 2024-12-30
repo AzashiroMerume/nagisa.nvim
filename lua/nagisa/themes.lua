@@ -69,7 +69,7 @@ local function setup(colors)
                     bg_dim = colors.grayDarkish,
                     col = colors.grayVeryDark,
                     border = colors.grayDark,
-                    search = colors.blueGray,
+                    search = colors.pink,
                     cursor = colors.grayMidDark,
                     selection = colors.lightRed,
                     pmenu = {
