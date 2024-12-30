@@ -171,9 +171,9 @@ M.setup = function(theme, opts)
         ["TelescopePromptBorder"] = { fg = theme.ui.border, bg = "NONE" },
         ["TelescopeResultsBorder"] = { fg = theme.ui.border, bg = "NONE" },
         ["TelescopePreviewBorder"] = { fg = theme.ui.cursor, bg = "NONE" },
-        ["TelescopeSelection"] = { fg = theme.ui.search, bg = "NONE" },
+        ["TelescopeSelection"] = { fg = theme.ui.selection, bg = "NONE" },
         ["TelescopeMultiSelection"] = { fg = theme.ui.search, bg = "NONE" },
-        ["TelescopeMatching"] = { fg = theme.ui.selection, bg = "NONE", bold = true },
+        ["TelescopeMatching"] = { fg = theme.syn.operator, bg = "NONE", bold = true },
         ["TelescopePromptPrefix"] = { fg = theme.ui.fg, bg = "NONE" },
 
         -- symbols-outline
