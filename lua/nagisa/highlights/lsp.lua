@@ -21,14 +21,8 @@ M.setup = function(theme, opts)
             fg = theme.syn.keyword,
             bg = "NONE",
         },
-        ["@lsp.type.comment.c"] = {
-            fg = theme.syn.comment,
-            bg = "NONE",
-        },
-        ["@lsp.type.comment.cpp"] = {
-            fg = theme.syn.comment,
-            bg = "NONE",
-        },
+        ["@lsp.type.comment.c"] = { link = "Comment" },
+        ["@lsp.type.comment.cpp"] = { link = "Comment" },
         ["@event"] = { link = "Identifier" },
         ["@interface"] = { link = "Identifier" },
         ["@modifier"] = { link = "Identifier" },
