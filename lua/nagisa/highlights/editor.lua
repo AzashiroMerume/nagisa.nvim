@@ -6,10 +6,10 @@ M.setup = function(theme, opts)
     opts = opts or require("nagisa.config").opts
 
     return {
-        Normal = { fg = theme.ui.fg, bg = theme.ui.bg },
+        Normal = { fg = theme.ui.fg, bg = opts.transparent and "NONE" or theme.ui.bg },
 
         -- Editor-related highlight groups
-        ColorColumn = { bg = theme.ui.col },
+        ColorColumn = { bg = opts.transparent and "NONE" or theme.ui.col },
         Conceal = { fg = theme.ui.fg, bg = theme.ui.bg },
         Cursor = { fg = theme.ui.cursor, bg = theme.ui.fg },
         lCursor = { link = "Cursor" },
@@ -37,10 +37,10 @@ M.setup = function(theme, opts)
         IncSearch = { fg = "NONE", bg = theme.ui.search },
 
         -- Popup menu highlights
-        Pmenu = { fg = theme.ui.pmenu.main, bg = theme.ui.bg },
-        PmenuSel = { fg = theme.ui.pmenu.sel, bg = "NONE" },
-        PmenuSbar = { fg = "NONE", bg = theme.ui.bg },
-        PmenuThumb = { fg = "NONE", bg = theme.ui.bg },
+        Pmenu = { fg = theme.ui.pmenu.main, bg = opts.transparent and "NONE" or theme.ui.bg },
+        PmenuSel = { fg = theme.ui.pmenu.sel, bg = opts.transparent and "NONE" or "NONE" },
+        PmenuSbar = { fg = "NONE", bg = opts.transparent and "NONE" or theme.ui.bg },
+        PmenuThumb = { fg = "NONE", bg = opts.transparent and "NONE" or theme.ui.bg },
 
         -- Window highlights
         WinBar = { fg = theme.ui.fg, bg = theme.ui.bg, bold = true },

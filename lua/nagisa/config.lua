@@ -2,7 +2,7 @@ local config = {}
 
 local defaults = {
     theme = "EndOfTheWorld",
-    transparent = false,
+    transparent = true,
     italic_comments = false,
     underline_links = false,
     color_overrides = {},

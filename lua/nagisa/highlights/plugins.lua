@@ -7,7 +7,7 @@ M.setup = function(theme, opts)
 
     return {
         -- Lazy
-        ["LazyNormal"] = { fg = theme.ui.fg, bg = theme.ui.bg },
+        ["LazyNormal"] = { fg = theme.ui.fg, bg = opts.transparent and "NONE" or theme.ui.bg },
         ["LazyCommit"] = { fg = theme.syn.special1, bg = theme.ui.bg },
         ["LazyCommitType"] = { fg = theme.syn.constant, bg = theme.ui.bg },
         ["LazyButton"] = { fg = theme.syn.variable, bg = theme.ui.bg },
@@ -41,8 +41,9 @@ M.setup = function(theme, opts)
         ["HarpoonCurrentFile"] = { fg = "NONE", bg = theme.ui.fg },
 
         -- BufferLine
-        ["BufferLineIndicatorSelethemeted"] = { fg = theme.ui.fg, bg = "NONE" },
-        ["BufferLineFill"] = { fg = "NONE", bg = theme.ui.bg },
+        ["BufferLineIndicatorSelected"] = { fg = theme.ui.statusline, bg = "NONE" },
+        ["BufferLineSeparator"] = { fg = theme.ui.bg_dim, bg = theme.ui.bg },
+        ["BufferLineFill"] = { fg = "NONE", bg = opts.transparent and "NONE" or theme.ui.bg },
         ["BufferCurrent"] = { fg = theme.ui.fg, bg = theme.ui.statusline },
         ["BufferCurrentIndex"] = { fg = theme.ui.fg, bg = theme.ui.statusline },
         ["BufferCurrentMod"] = { fg = theme.syn.special2, bg = theme.ui.statusline },
@@ -168,7 +169,7 @@ M.setup = function(theme, opts)
         ["LspSagaLspFinderBorder"] = { fg = theme.ui.cursor, bg = "NONE" },
 
         ["TelescopeNormal"] = { fg = theme.ui.fg, bg = "NONE" },
-        ["TelescopePromptBorder"] = { fg = theme.ui.border, bg = "NONE" },
+        ["TelescopePromptBorder"] = { fg = theme.ui.selection, bg = "NONE" },
         ["TelescopeResultsBorder"] = { fg = theme.ui.border, bg = "NONE" },
         ["TelescopePreviewBorder"] = { fg = theme.ui.cursor, bg = "NONE" },
         ["TelescopeSelection"] = { fg = theme.ui.selection, bg = "NONE" },

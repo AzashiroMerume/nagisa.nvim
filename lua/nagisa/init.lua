@@ -34,14 +34,22 @@ function nagisa.compile()
 end
 
 vim.api.nvim_create_user_command("NagisaCompile", function()
+    -- Clear cached modules
     for mod, _ in pairs(package.loaded) do
         if mod:match("^nagisa%.") then
             package.loaded[mod] = nil
         end
     end
+
+    -- Reload configuration
+    config = require("nagisa.config")
+
+    -- Recompile and reload theme
     nagisa.compile()
     vim.notify("Nagisa compiled successfully!", vim.log.levels.INFO)
     nagisa.load(nagisa.theme)
+
+    -- Trigger ColorScheme autocmd
     vim.api.nvim_exec_autocmds("ColorScheme", { modeline = false })
 end, {})
 
