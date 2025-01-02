@@ -8,20 +8,14 @@ local colors = {
     grayMidDark = "#51504F",
     grayMid = "#636369",
     grayLight = "#BBBBBB",
-    blueGray = "#515c6a",
-    blueGrayDark = "#202d39",
     gray = "#546E7A",
 
     -- Blues
     blackishBlue = "#07090F",
+    blueGrayDark = "#202d39",
     blueDark = "#264F78",
-    darkBlue = "#14095B",
-    mediumBlue = "#3721BE",
-    disabledBlue = "#729DB3",
     lightBlue = "#9CDCFE",
-    uiBlue = "#084671",
     accentBlue = "#2AABEF",
-    popupHiglightLightBlue = "#d7eafe",
     blue = "#3772FF",
 
     -- Purples
@@ -40,16 +34,12 @@ local colors = {
     greenBlue = "#17C3B2",
     lightGreen = "#65E7CD",
     greenDark = "#0E4732",
-    greenPastel = "#81b88b",
-    greenPastel2 = "#73c991",
+    greenPastel = "#73c991",
 
     -- Yellows and Oranges
-    yellowPastel = "#e2c08d",
     yellow = "#F0E100",
     yellowOrange = "#D89615",
-    darkYellow = "#6C680A",
     orange = "#FF521B",
-    uiOrange = "#f28b25",
 
     -- Pinks
     pink = "#F261C5",
@@ -57,7 +47,6 @@ local colors = {
     -- Miscellaneous
     back = "#07090F",
     front = "#e7e7e7",
-    dimHighlight = "#51504F",
 
     -- diagnostic
     error = "#DA1E37",
