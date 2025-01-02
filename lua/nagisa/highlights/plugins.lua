@@ -143,10 +143,10 @@ M.setup = function(theme, opts)
         -- NeogitOrg/neogit
         ["NeogitDiffAdd"] = { fg = theme.diff.add, bg = "NONE" },
         ["NeogitDiffAddHighlight"] = { fg = "NONE", bg = theme.vcs.addedLn },
+        ["NeogitDiffDelete"] = { fg = theme.diff.delete, bg = "NONE" },
+        ["NeogitDiffDeleteHighlight"] = { fg = "NONE", bg = theme.vcs.deletedLn },
         ["NeogitDiffContext"] = { fg = theme.ui.pmenu.main, bg = theme.diff.text },
         ["NeogitDiffContextHighlight"] = { fg = "NONE", bg = theme.diff.text },
-        ["NeogitDiffDelete"] = { fg = theme.syn.func, bg = "NONE" },
-        ["NeogitDiffDeleteHighlight"] = { fg = "NONE", bg = theme.diff.delete },
         ["NeogitDiffHeader"] = { fg = theme.ui.pmenu.main, bg = theme.ui.bg },
         ["NeogitDiffHeaderHighlight"] = { fg = theme.ui.pmenu.main, bg = theme.ui.bg },
         ["NeogitHunkHeader"] = { fg = theme.diag.warning, bg = theme.diff.delete },

@@ -33,7 +33,7 @@ local colors = {
     greenLight = "#4B5632",
     greenBlue = "#17C3B2",
     lightGreen = "#65E7CD",
-    greenDark = "#0E4732",
+    greenDark = "#054A29",
     greenPastel = "#73c991",
 
     -- Yellows and Oranges
