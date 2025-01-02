@@ -101,7 +101,7 @@ local function setup(colors)
                     deletedLn = colors.redDark,
                 },
                 diff = {
-                    add = colors.greenPastel2,
+                    add = colors.greenPastel,
                     delete = colors.redDark,
                     change = colors.blueGrayDark,
                     text = colors.blueDark,
