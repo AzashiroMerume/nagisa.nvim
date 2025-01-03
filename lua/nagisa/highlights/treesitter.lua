@@ -19,7 +19,7 @@ M.setup = function(theme, opts)
         },
         ["@comment.error"] = { fg = theme.diag.error, bg = "NONE", bold = true },
         ["@constant"] = { fg = theme.syn.constant, bg = "NONE" },
-        ["@constant.builtin"] = { fg = theme.syn.special1, bg = "NONE" },
+        ["@constant.builtin"] = { fg = theme.syn.constant, bg = "NONE" },
         ["@constant.macro"] = { fg = theme.syn.identifier, bg = "NONE" },
         ["@string.regexp"] = { fg = theme.syn.constant, bg = "NONE" },
         ["@string"] = { fg = theme.syn.string, bg = "NONE" },
