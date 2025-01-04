@@ -65,7 +65,7 @@ M.setup = function(theme, opts)
         ["BufferTabpagesFill"] = { fg = theme.ui.fg, bg = theme.ui.fg_dim },
 
         -- Eyeliner
-        ["EyelinerPrimary"] = { fg = theme.syn.func, bold = true, underline = true },
+        ["EyelinerPrimary"] = { fg = theme.ui.selection, bold = true, underline = true },
         ["EyelinerSecondary"] = { fg = theme.syn.special2, underline = true },
 
         -- LSP

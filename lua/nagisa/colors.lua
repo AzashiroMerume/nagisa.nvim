@@ -25,7 +25,7 @@ local colors = {
     -- Reds
     redDark = "#6F1313",
     redPastel = "#c74e39",
-    lightRed = "#FF1424",
+    lightRed = "#FF3040",
     red = "#FF073A",
 
     -- Greens
