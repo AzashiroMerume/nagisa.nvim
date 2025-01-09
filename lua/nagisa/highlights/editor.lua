@@ -64,7 +64,7 @@ M.setup = function(theme, opts)
         MoreMsg = { link = "ModeMsg" },
         NonText = { fg = theme.ui.fg_dim, bg = "NONE" },
         SpecialKey = { fg = theme.ui.selection, bg = "NONE" },
-        Question = { fg = theme.ui.search, bg = theme.ui.search },
+        Question = { fg = theme.ui.fg, bg = theme.ui.statusline },
         EndOfBuffer = { fg = theme.ui.bg },
     }
 end
