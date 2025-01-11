@@ -1,9 +1,9 @@
 local nagisa = {}
 local config = require("nagisa.config")
 
----@param user_opts table
-nagisa.setup = function(user_opts)
-    config.setup(user_opts)
+---@param opts NagisaConfig
+nagisa.setup = function(opts)
+    config.setup(opts)
     nagisa.theme = config.opts.theme
 end
 
@@ -41,10 +41,6 @@ vim.api.nvim_create_user_command("NagisaCompile", function()
         end
     end
 
-    -- Reload configuration
-    config = require("nagisa.config")
-
-    -- Recompile and reload theme
     nagisa.compile()
     vim.notify("Nagisa compiled successfully!", vim.log.levels.INFO)
     nagisa.load(nagisa.theme)
