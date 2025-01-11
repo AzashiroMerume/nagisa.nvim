@@ -1,7 +1,7 @@
 local h = {}
 
----@param theme table
----@param opts table
+---@param theme Theme
+---@param opts NagisaConfig
 ---@return table highlights
 function h.setup(theme, opts)
     local highlights = {}

@@ -48,7 +48,7 @@ local function save_compiled_highlights(path, highlights)
 end
 
 ---@param theme_name string
----@param opts table
+---@param opts NagisaConfig
 ---@param colors Colors
 function M.compile(theme_name, opts, colors)
     local themes = require("nagisa.themes")
