@@ -20,6 +20,7 @@ local defaults = {
     disable_nvimtree_bg = true,
 }
 
+---@type NagisaConfig
 config.opts = {}
 
 ---@param user_opts? NagisaConfig

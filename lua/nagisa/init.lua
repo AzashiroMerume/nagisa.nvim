@@ -1,10 +1,16 @@
 local nagisa = {}
 local config = require("nagisa.config")
 
+nagisa.state = {
+    opts = {},
+    theme = nil,
+}
+
 ---@param opts NagisaConfig
 nagisa.setup = function(opts)
     config.setup(opts)
-    nagisa.theme = config.opts.theme
+    nagisa.state.opts = config.opts
+    nagisa.state.theme = config.opts.theme
 end
 
 ---@param theme_name? string
@@ -18,11 +24,11 @@ nagisa.load = function(theme_name)
 
     vim.o.termguicolors = true
 
-    nagisa.theme = theme_name or config.opts.theme or nagisa.theme
+    nagisa.state.theme = theme_name or nagisa.state.opts.theme
 
-    if not utils.load_compiled(nagisa.theme) then
+    if not utils.load_compiled(nagisa.state.theme) then
         nagisa.compile()
-        utils.load_compiled(nagisa.theme)
+        utils.load_compiled(nagisa.state.theme)
     end
 end
 
@@ -30,11 +36,22 @@ function nagisa.compile()
     local utils = require("nagisa.utils")
     local colors = require("nagisa.colors")
 
-    utils.compile(nagisa.theme, config.opts, colors)
+    utils.compile(nagisa.state.theme, nagisa.state.opts, colors)
+end
+
+---@return NagisaConfig
+function nagisa.get_opts()
+    return nagisa.state.opts
+end
+
+---@return Theme
+function nagisa.get_theme()
+    local colors = require("nagisa.colors")
+    local themes = require("nagisa.themes")
+    return themes.setup(colors)[nagisa.state.theme]()
 end
 
 vim.api.nvim_create_user_command("NagisaCompile", function()
-    -- Clear cached modules
     for mod, _ in pairs(package.loaded) do
         if mod:match("^nagisa%.") then
             package.loaded[mod] = nil
@@ -43,9 +60,7 @@ vim.api.nvim_create_user_command("NagisaCompile", function()
 
     nagisa.compile()
     vim.notify("Nagisa compiled successfully!", vim.log.levels.INFO)
-    nagisa.load(nagisa.theme)
-
-    -- Trigger ColorScheme autocmd
+    nagisa.load(nagisa.state.theme)
     vim.api.nvim_exec_autocmds("ColorScheme", { modeline = false })
 end, {})
 

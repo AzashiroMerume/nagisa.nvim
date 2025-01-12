@@ -1,62 +1,49 @@
+local init = require("nagisa")
+local opts = init.get_opts()
+local theme = init.get_theme()
+
 local nagisa = {}
-local colors = {}
-
-colors.inactive = "#666666"
-colors.bg = "#262626"
-colors.bg2 = "#373737"
-colors.fg = "#ffffff"
-colors.red = "#f44747"
-colors.green = "#4EC9B0"
-colors.blue = "#0a7aca"
-colors.lightblue = "#5CB6F8"
-colors.yellow = "#ffaf00"
-colors.pink = "#DDB6F2"
-
-local bg_normal = colors.bg2
-local bg_replace = colors.bg2
-local bg_insert = colors.bg2
-local bg_terminal = colors.bg2
-local bg_command = colors.bg2
 
 nagisa.normal = {
-    a = { fg = colors.fg, bg = colors.blue, gui = "bold" },
-    b = { fg = colors.blue, bg = bg_normal },
-    c = { fg = colors.fg, bg = bg_normal },
+    a = { fg = theme.ui.fg, bg = theme.ui.statusline, gui = "bold" },
+    b = { fg = theme.ui.statusline, bg = theme.ui.bg },
+    c = { fg = theme.ui.fg, bg = opts.transparent and "NONE" or theme.ui.bg },
 }
 
 nagisa.visual = {
-    a = { fg = colors.bg, bg = colors.yellow, gui = "bold" },
-    b = { fg = colors.yellow, bg = bg_normal },
+    a = { fg = theme.ui.fg, bg = theme.ui.dir, gui = "bold" },
+    b = { fg = theme.ui.dir, bg = theme.ui.bg },
+    c = { fg = theme.ui.fg, bg = opts.transparent and "NONE" or theme.ui.bg },
 }
 
 nagisa.inactive = {
-    a = { fg = colors.fg, bg = colors.bg, gui = "bold" },
-    b = { fg = colors.inactive, bg = bg_normal },
-    c = { fg = colors.inactive, bg = bg_normal },
+    a = { fg = theme.ui.fg, bg = theme.ui.statusline, gui = "bold" },
+    b = { fg = theme.ui.fg_dim, bg = theme.ui.bg },
+    c = { fg = theme.ui.fg_dim, bg = opts.transparent and "NONE" or theme.ui.bg },
 }
 
 nagisa.replace = {
-    a = { fg = colors.fg, bg = colors.red, gui = "bold" },
-    b = { fg = colors.red, bg = bg_replace },
-    c = { fg = colors.fg, bg = bg_normal },
+    a = { fg = theme.ui.fg, bg = theme.syn.special1, gui = "bold" },
+    b = { fg = theme.syn.special1, bg = theme.ui.bg },
+    c = { fg = theme.ui.fg, bg = opts.transparent and "NONE" or theme.ui.bg },
 }
 
 nagisa.insert = {
-    a = { fg = colors.bg, bg = colors.green, gui = "bold" },
-    b = { fg = colors.green, bg = bg_insert },
-    c = { fg = colors.fg, bg = bg_normal },
+    a = { fg = theme.ui.fg, bg = theme.syn.special3, gui = "bold" },
+    b = { fg = theme.syn.special3, bg = theme.ui.bg },
+    c = { fg = theme.ui.fg, bg = opts.transparent and "NONE" or theme.ui.bg },
 }
 
 nagisa.terminal = {
-    a = { fg = colors.fg, bg = colors.green, gui = "bold" },
-    b = { fg = colors.fg, bg = bg_terminal },
-    c = { fg = colors.fg, bg = bg_normal },
+    a = { fg = theme.ui.fg, bg = theme.ui.selection, gui = "bold" },
+    b = { fg = theme.ui.selection, bg = theme.ui.bg },
+    c = { fg = theme.ui.fg, bg = opts.transparent and "NONE" or theme.ui.bg },
 }
 
 nagisa.command = {
-    a = { fg = colors.fg, bg = colors.pink, gui = "bold" },
-    b = { fg = colors.pink, bg = bg_command },
-    c = { fg = colors.fg, bg = bg_normal },
+    a = { fg = theme.ui.fg, bg = theme.syn.func, gui = "bold" },
+    b = { fg = theme.syn.func, bg = theme.ui.bg },
+    c = { fg = theme.ui.fg, bg = opts.transparent and "NONE" or theme.ui.bg },
 }
 
 return nagisa

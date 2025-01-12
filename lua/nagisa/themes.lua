@@ -35,6 +35,7 @@
 ---@field operator string
 ---@field special1 string
 ---@field special2 string
+---@field special3 string
 
 ---@class VCSElements
 ---@field added string
@@ -91,6 +92,7 @@ local function setup(colors)
                     operator = colors.purple,
                     special1 = colors.blue,
                     special2 = colors.yellowOrange,
+                    special3 = colors.greenDark,
                 },
                 vcs = {
                     added = colors.green,
