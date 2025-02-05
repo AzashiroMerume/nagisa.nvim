@@ -11,7 +11,7 @@ nagisa.normal = {
 }
 
 nagisa.visual = {
-    a = { fg = theme.ui.fg, bg = theme.ui.dir, gui = "bold" },
+    a = { fg = theme.ui.bg, bg = theme.ui.dir, gui = "bold" },
     b = { fg = theme.ui.dir, bg = theme.ui.bg },
     c = { fg = theme.ui.fg, bg = opts.transparent and "NONE" or theme.ui.bg },
 }
@@ -29,8 +29,8 @@ nagisa.replace = {
 }
 
 nagisa.insert = {
-    a = { fg = theme.ui.fg, bg = theme.syn.special3, gui = "bold" },
-    b = { fg = theme.syn.special3, bg = theme.ui.bg },
+    a = { fg = theme.ui.bg, bg = theme.syn.string, gui = "bold" },
+    b = { fg = theme.syn.string, bg = theme.ui.bg },
     c = { fg = theme.ui.fg, bg = opts.transparent and "NONE" or theme.ui.bg },
 }
 
