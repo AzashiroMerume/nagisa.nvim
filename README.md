@@ -1,5 +1,6 @@
 <div align="center">
   <h1>nagisa.nvim 🌠</h1>
+   <img src="sshot_1.png" alt="Screenshot of Nagisa theme"/>
 </div>
 
 A clean and minimalist Neovim theme with a dark background and vibrant red-orange highlights.
