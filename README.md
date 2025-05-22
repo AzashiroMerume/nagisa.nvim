@@ -20,7 +20,7 @@ Download with your favorite package manager
 ### packer.nvim
 
 ```lua
-use("azashiromerume/nagisa.nvim")
+use("sanzharkuandyk/nagisa.nvim")
 ```
 
 ### lazy.nvim
