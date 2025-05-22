@@ -27,7 +27,7 @@ use("sanzharkuandyk/nagisa.nvim")
 
 ```lua
 {
-  "azashiromerume/nagisa.nvim",
+  "sanzharkuandyk/nagisa.nvim",
 }
 ```
 
